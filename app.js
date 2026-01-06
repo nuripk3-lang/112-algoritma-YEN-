@@ -931,25 +931,44 @@ function renderIlacTablosu() {
 }
 
 // --- SES SİSTEMİ (ASTIM, KOAH, ANAFİLAKSİ) ---
-const wheezingSound = new Audio('.sound/wheezing.mp3');
-const ronkusSound = new Audio('.sound/ronkus.mp3');
-const stridorSound = new Audio('.sound/stridor.mp3');
-const krupSound = new Audio('.sound/krup.mp3');
+
+
+// Çalan sesi takip etmek için boş bir değişken oluşturuyoruz
+let currentActiveAudio = null;
 
 function playSound(type) {
+    // 1. Eğer halihazırda bir ses çalıyorsa önce onu durdur
     stopAllSounds();
-    if(type === 'astim') wheezingSound.play().catch(e => console.log("Astım sesi hatası:", e));
-    if(type === 'koah') ronkusSound.play().catch(e => console.log("KOAH sesi hatası:", e));
-    if(type === 'anafilaksi') stridorSound.play().catch(e => console.log("Stridor sesi hatası:", e));
-    if(type === 'krup') krupSound.play().catch(e => console.log("krup sesi hatası:", e));
 
+    // 2. Ses listesini tanımla (Dosya yollarının başına ./ ekledik)
+    const sesListesi = {
+        'astim': './sound/wheezing.mp3',
+        'koah': './sound/ronkus.mp3',
+        'anafilaksi': './sound/stridor.mp3',
+        'krup': './sound/krup.mp3'
+    };
+
+    const dosyaYolu = sesListesi[type];
+
+    if (dosyaYolu) {
+        // 3. KRİTİK NOKTA: Sesi tam şu an (butona basılınca) oluşturuyoruz
+        currentActiveAudio = new Audio(dosyaYolu);
+        
+        // 4. Telefonun sesi çalmasına izin ver
+        currentActiveAudio.play().catch(e => {
+            console.error("Mobil oynatma hatası:", e);
+            // Eğer hala çalmıyorsa büyük/küçük harf hatası olabilir
+        });
+    }
 }
 
 function stopAllSounds() {
-    [wheezingSound, ronkusSound, stridorSound,krupSound].forEach(s => {
-        s.pause();
-        s.currentTime = 0;
-    });
+    // Eğer o an çalan bir ses varsa (currentActiveAudio boş değilse)
+    if (currentActiveAudio) {
+        currentActiveAudio.pause();      // Sesi durdur
+        currentActiveAudio.currentTime = 0; // Başa sar
+        currentActiveAudio = null;       // Değişkeni sıfırla (belleği boşalt)
+    }
 }
 
 // Sayfa yüklendiğinde Splash Screen'i yönet
