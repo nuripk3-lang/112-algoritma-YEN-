@@ -937,31 +937,30 @@ function renderIlacTablosu() {
 let currentActiveAudio = null;
 
 function playSound(type) {
-    // 1. Eğer halihazırda bir ses çalıyorsa önce onu durdur
     stopAllSounds();
 
-    // 2. Ses listesini tanımla (Dosya yollarının başına ./ ekledik)
     const sesListesi = {
-        'astim': './sound/wheezing.mp3',
-        'koah': './sound/ronkus.mp3',
-        'anafilaksi': './sound/stridor.mp3',
-        'krup': './sound/krup.mp3'
+        'astim': 'sound/wheezing.mp3',   // Başına nokta koymadan dene
+        'koah': 'sound/ronkus.mp3',
+        'anafilaksi': 'sound/stridor.mp3',
+        'krup': 'sound/krup.mp3'
     };
 
-    const dosyaYolu = sesListesi[type];
+    const dosya = sesListesi[type];
 
-    if (dosyaYolu) {
-        // 3. KRİTİK NOKTA: Sesi tam şu an (butona basılınca) oluşturuyoruz
-        currentActiveAudio = new Audio(dosyaYolu);
+    if (dosya) {
+        // Mobil tarayıcılar için yeni bir Audio objesi oluştur
+        currentActiveAudio = new Audio(dosya);
         
-        // 4. Telefonun sesi çalmasına izin ver
+        // Sesi yükle ve hazır olduğunda çal
+        currentActiveAudio.load(); 
+        
         currentActiveAudio.play().catch(e => {
-            console.error("Mobil oynatma hatası:", e);
-            // Eğer hala çalmıyorsa büyük/küçük harf hatası olabilir
+            console.error("Mobil hata:", e);
+            // Eğer hala çalmıyorsa, kullanıcıya bir kez ekrana dokunmasını söyleyebiliriz
         });
     }
 }
-
 function stopAllSounds() {
     // Eğer o an çalan bir ses varsa (currentActiveAudio boş değilse)
     if (currentActiveAudio) {
