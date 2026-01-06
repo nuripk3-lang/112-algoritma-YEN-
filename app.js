@@ -565,10 +565,10 @@ let html = `
    // Ses Paneli (Astım, KOAH veya Anafilaksi)
     const currentKey = key.toLowerCase().trim();
     const sesVerileri = {
-    'astim': 'Wheezing (Hırıltı)',
+    'astim': 'wheezing (Hırıltı)',
     'koah': 'Ronküs (Kaba Ses)',
     'anafilaksi': 'Stridor (Üst Havayolu Daralması)',
-    'krup': 'KRUP (Pediyatrik Ses)' // Bunu ekle
+    'krup': 'krup (Pediyatrik Ses)' // Bunu ekle
 };
 
     if (sesVerileri[currentKey]) {
