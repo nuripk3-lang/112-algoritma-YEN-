@@ -944,7 +944,7 @@ function playSound(type) {
         'astim': 'sound/wheezing.mp3',   // Başına nokta koymadan dene
         'koah': 'sound/ronkus.mp3',
         'anafilaksi': 'sound/stridor.mp3',
-        'krup': 'sound/krup.mp3',
+        'krup': 'sound/krup.mp3'
     };
 
     const dosya = sesListesi[type];
