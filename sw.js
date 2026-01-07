@@ -23,6 +23,7 @@ const urlsToCache = [
   './sound/wheezing.mp3',
   './sound/ronkus.mp3',
   './sound/stridor.mp3'
+  './sound/krup.mp3'
 ];
 // Dosyaları hafızaya al
 self.addEventListener('install', event => {
