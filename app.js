@@ -1862,6 +1862,25 @@ function hesaplaCocukDoz() {
 
   h += `</div>`;
   res.innerHTML = h;
+  
+  // JavaScript ile direkt elementlere de stil uygula (cache bypass)
+  setTimeout(() => {
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (isDarkMode) {
+      const dozSonuc = document.getElementById('dozSonuc');
+      const allElements = dozSonuc.querySelectorAll('*');
+      
+      dozSonuc.style.setProperty('background', '#0f172a', 'important');
+      dozSonuc.style.setProperty('color', '#f8fafc', 'important');
+      
+      allElements.forEach(el => {
+        el.style.setProperty('color', '#f8fafc', 'important');
+        if (el.classList.contains('decision-title')) {
+          el.style.setProperty('color', '#fbbf24', 'important');
+        }
+      });
+    }
+  }, 100);
 }
 
 function clearContent() {
@@ -2052,16 +2071,51 @@ function renderIlacTablosu() {
     {ad: "Dormicum", form: "5/15 mg", not: "SF ile sulandırılabilir. Titre ederek (yavaş) verilir."}
   ];
 
+  // Tema kontrolü - gece modunda çok daha kontrastlı renkler
+  const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+  const textColor = isDarkMode ? '#f8fafc' : '#1f2937';        // Çok açık gri (gece modunda)
+  const bgEven = isDarkMode ? '#0f172a' : '#ffffff';           // Çok koyu mavi (gece modunda)
+  const bgOdd = isDarkMode ? '#1e293b' : '#f8fafc';            // Orta koyu mavi (gece modunda)
+  const borderColor = isDarkMode ? '#475569' : '#eee';         // Orta gri (gece modunda)
+
   let html = "";
   ilaclar.forEach((i, index) => {
-    const bg = index % 2 === 0 ? "#ffffff" : "#f8fafc";
-    html += `<tr style="background: ${bg}; border-bottom: 1px solid #eee;">
-      <td style="padding: 10px; font-weight: bold; color: var(--danger); border: 1px solid #eee;">${i.ad}</td>
-      <td style="padding: 10px; border: 1px solid #eee;">${i.form}</td>
-      <td style="padding: 10px; border: 1px solid #eee;">${i.not}</td>
+    const bg = index % 2 === 0 ? bgEven : bgOdd;
+    html += `<tr style="background: ${bg} !important; border-bottom: 1px solid ${borderColor} !important;">
+      <td style="padding: 10px; font-weight: bold; color: ${textColor} !important; border: 1px solid ${borderColor} !important; background: ${bg} !important;">${i.ad}</td>
+      <td style="padding: 10px; border: 1px solid ${borderColor} !important; color: ${textColor} !important; background: ${bg} !important;">${i.form}</td>
+      <td style="padding: 10px; border: 1px solid ${borderColor} !important; color: ${textColor} !important; background: ${bg} !important;">${i.not}</td>
     </tr>`;
   });
   document.getElementById("ilacTabloGövde").innerHTML = html;
+  
+  // JavaScript ile direkt table elementine de stil uygula (cache bypass)
+  setTimeout(() => {
+    const table = document.querySelector('#ilacTabloSection table');
+    const tableHeader = document.querySelector('#ilacTabloSection table thead');
+    const tableBody = document.querySelector('#ilacTabloSection table tbody');
+    const allCells = document.querySelectorAll('#ilacTabloSection table td, #ilacTabloSection table th');
+    
+    if (isDarkMode && table) {
+      table.style.setProperty('background', '#0f172a', 'important');
+      table.style.setProperty('color', '#f8fafc', 'important');
+      
+      if (tableHeader) {
+        tableHeader.style.setProperty('background', '#1e293b', 'important');
+        tableHeader.style.setProperty('color', '#f8fafc', 'important');
+      }
+      
+      if (tableBody) {
+        tableBody.style.setProperty('background', '#0f172a', 'important');
+        tableBody.style.setProperty('color', '#f8fafc', 'important');
+      }
+      
+      allCells.forEach(cell => {
+        cell.style.setProperty('color', '#f8fafc', 'important');
+        cell.style.setProperty('border-color', '#475569', 'important');
+      });
+    }
+  }, 100);
 }
 
 // --- SES SİSTEMİ (ASTIM, KOAH, ANAFİLAKSİ) ---
@@ -2856,6 +2910,25 @@ function showChildCalc() {
     `;
     contentEl.style.display = 'block';
     window.scrollTo(0, 0);
+    
+    // JavaScript ile direkt elementlere de stil uygula (cache bypass)
+    setTimeout(() => {
+        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDarkMode) {
+            const calcResults = document.getElementById('calc-results');
+            const allElements = contentEl.querySelectorAll('*');
+            
+            allElements.forEach(el => {
+                if (el.tagName === 'LABEL' || el.tagName === 'INPUT' || el.tagName === 'H2') {
+                    el.style.setProperty('color', '#f8fafc', 'important');
+                }
+                if (el.classList.contains('drug-section')) {
+                    el.style.setProperty('color', '#f8fafc', 'important');
+                    el.style.setProperty('background', '#0f172a', 'important');
+                }
+            });
+        }
+    }, 100);
 }
 
 // ÇOCUK FİLTRELEME SİSTEMİ
