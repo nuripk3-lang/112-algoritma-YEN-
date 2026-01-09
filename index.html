@@ -3,12 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>112 Müdahale Algoritmaları</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="Hastane öncesi acil müdahale algoritmaları — hızlı referans, dozlar ve uyarılar.">
+  <meta name="theme-color" content="#b91c1c">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="112 Asistan">
+  <!-- Favicon (PNG for better compatibility) -->
+  <link rel="icon" type="image/png" sizes="16x16" href="img/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/logo.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="img/logo.png">
+  <link rel="shortcut icon" href="img/logo.png">
+  
+  <!-- Apple Touch Icons (PNG for iOS compatibility) -->
+  <link rel="apple-touch-icon" href="img/logo.png?v=5">
+  <link rel="apple-touch-icon" sizes="57x57" href="img/logo.png?v=5">
+  <link rel="apple-touch-icon" sizes="60x60" href="img/logo.png?v=5">
+  <link rel="apple-touch-icon" sizes="72x72" href="img/logo.png?v=5">
+  <link rel="apple-touch-icon" sizes="76x76" href="img/logo.png?v=5">
+  <link rel="apple-touch-icon" sizes="114x114" href="img/logo.png?v=5">
+  <link rel="apple-touch-icon" sizes="120x120" href="img/logo.png?v=5">
+  <link rel="apple-touch-icon" sizes="144x144" href="img/logo.png?v=5">
+  <link rel="apple-touch-icon" sizes="152x152" href="img/logo.png?v=5">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/logo.png?v=5">
+  
+  <!-- Microsoft Tiles -->
+  <meta name="msapplication-TileImage" content="img/icons/pwa/icon-144x144.jpg">
+  <meta name="msapplication-TileColor" content="#b91c1c">
+  <meta name="msapplication-config" content="browserconfig.xml">
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden;">
+<div id="splash-screen" onclick="closeSplashScreen()" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; cursor: pointer;" title="Tıklayarak geç">
     
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://www.transparenttextures.com/patterns/pinstriped-suit.png'); opacity: 0.05;"></div>
 
@@ -33,10 +61,8 @@
     <div style="position: absolute; bottom: 40px; color: #94a3b8; font-size: 11px; font-family: sans-serif; letter-spacing: 1px; font-weight: 600;">
         T.C. SAĞLIK BAKANLIĞI KURUMSAL REHBERİ
     </div>
-</div>
-    </div>
     
-    <div style="position: absolute; bottom: 30px; color: #94a3b8; font-size: 12px; font-family: sans-serif;">
+    <div style="position: absolute; bottom: 20px; color: #94a3b8; font-size: 12px; font-family: sans-serif;">
         © 2026 Hastane Öncesi Bakım Kılavuzu
     </div>
 </div>
@@ -54,17 +80,30 @@
 }
 </style>
 
-<h1>🚑 112 Acil Müdahale</h1>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+  <h1 style="margin: 0;">🚑 112 Acil Müdahale</h1>
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Tema Değiştir" title="Karanlık/Açık Tema">
+    🌙
+  </button>
+</div>
 <p class="info">Vakaya çıkmadan önce hızlı gözden geçirme amaçlıdır.</p>
 
 <label for="searchInput" class="visually-hidden">Algoritma ara</label>
 <input
   type="text"
   id="searchInput"
-  placeholder="🔍 Algoritma ara (Nöbet, Travma, Anafilaksi...)"
+  placeholder="🔍 Algoritma ara (Nöbet, Travma, Anafilaksi, kalp, çocuk...)"
   onkeyup="searchAlgo()"
+  oninput="searchAlgo()"
   aria-label="Algoritma ara"
 />
+
+<!-- Favoriler Bölümü -->
+<div id="favoritesSection" style="display: none;">
+  <h2 style="margin: 0 0 10px 0; font-size: 1.2rem; color: var(--warning);">⭐ Favorilerim</h2>
+  <div id="favoritesGrid"></div>
+  <p id="noFavorites" style="text-align: center; color: var(--muted); display: none;">Henüz favori eklenmemiş. Algoritmalara ⭐ butonu ile ekleyebilirsiniz.</p>
+</div>
 
 <div class="grid">
   <button data-key="yetiskin" onclick="showGroup('yetiskin')" aria-controls="yetiskin" aria-pressed="false">🧑 Yetişkin</button>
@@ -72,6 +111,7 @@
   <button data-key="doz" onclick="showChildCalc()" class="menu-btn">💉 Çocuk Hesaplamalar</button>
   <button data-key="ilaclar" onclick="showGroup('ilaclar')" aria-controls="ilacTabloSection" aria-pressed="false">💊 İlaçlar</button>
   <button data-key="uygulamalar" onclick="showProcedures()" style="background: #4b5563;">⚙️ Uygulamalar</button>
+  <button data-key="quiz" onclick="showQuizGame()" style="background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35);">🎮 Quiz Oyunu</button>
 </div>
 
 <!-- YETİŞKİN -->
@@ -139,7 +179,6 @@
         <button data-key="astim" data-category="respiratory" data-tags="nefes,çocuk,ventolin" onclick="showAlgo('astim','Çocuk')">Astım</button>
         <button data-key="krup" data-category="respiratory" data-tags="stridor,çocuk" onclick="showAlgo('krup','Çocuk')">Krup</button>
         <button data-key="epiglotit_cocuk" data-category="respiratory" onclick="showAlgo('epiglotit_cocuk','Çocuk')">Epiglotit</button>
-        <button data-key="koah" data-category="respiratory" onclick="showAlgo('koah','Çocuk')">KOAH (Pediyatrik)</button>
 
         <button data-key="nobet" data-category="neuro" data-tags="nöbet,çocuk" onclick="showAlgo('nobet','Çocuk')">Nöbet</button>
         <button data-key="kafa" data-category="neuro" data-tags="kafa,çocuk" onclick="showAlgo('kafa','Çocuk')">Kafa Travması</button>
@@ -211,6 +250,6 @@
 
 </div>
 
-<script src="app.js" defer></script>
+<script src="app.js?v=ui-fixes-v22" defer></script>
 </body>
 </html>
