@@ -5,8 +5,1109 @@ const proceduresData = [
     { isim: "İğne Krikotirotomi", link: "video/krikotomi.mp4" },
     { isim: "Kemik İçi (IO) Uygulama", link: "video/io.mp4" }
 ];
+// --- QUIZ GAME DATA ---
+const quizQuestions = [
+    // Kolay Seviye (Temel Bilgiler)
+    {
+        level: "kolay",
+        question: "Normal yetişkin kalp hızı dakikada kaç atımdır?",
+        options: ["40-60", "60-100", "100-120", "120-150"],
+        correct: 1,
+        explanation: "Normal yetişkin kalp hızı dakikada 60-100 atımdır."
+    },
+    {
+        level: "kolay", 
+        question: "CPR'da göğüs kompresyonu oranı nedir?",
+        options: ["15:2", "30:2", "5:1", "10:2"],
+        correct: 1,
+        explanation: "CPR'da göğüs kompresyonu ve solunum oranı 30:2'dir."
+    },
+    {
+        level: "kolay",
+        question: "Anafilaksi tedavisinde ilk tercih ilaç nedir?",
+        options: ["Antihistaminik", "Steroid", "Adrenalin", "Bronkodilatatör"],
+        correct: 2,
+        explanation: "Anafilaksi tedavisinde ilk tercih adrenalin (epinefrin) IM'dir."
+    },
+    {
+        level: "kolay",
+        question: "Hipoglisemi belirtisi hangisidir?",
+        options: ["Yüksek ateş", "Terleme ve titreme", "Yavaş nabız", "Yüksek tansiyon"],
+        correct: 1,
+        explanation: "Hipoglisemide terleme, titreme, baş dönmesi görülür."
+    },
+    {
+        level: "kolay",
+        question: "Normal vücut sıcaklığı kaç derecedir?",
+        options: ["35-36°C", "36-37.5°C", "37.5-38°C", "38-39°C"],
+        correct: 1,
+        explanation: "Normal vücut sıcaklığı 36-37.5°C arasındadır."
+    },
+    {
+        level: "kolay",
+        question: "Yetişkinde normal solunum sayısı nedir?",
+        options: ["8-12/dk", "12-20/dk", "20-30/dk", "30-40/dk"],
+        correct: 1,
+        explanation: "Normal yetişkin solunum sayısı 12-20/dakikadır."
+    },
+    {
+        level: "kolay",
+        question: "Normal kan basıncı değeri nedir?",
+        options: ["90/60 mmHg", "120/80 mmHg", "140/90 mmHg", "160/100 mmHg"],
+        correct: 1,
+        explanation: "Normal kan basıncı 120/80 mmHg civarındadır."
+    },
+    {
+        level: "kolay",
+        question: "Şok belirtisi hangisidir?",
+        options: ["Yavaş nabız", "Sıcak cilt", "Soğuk-nemli cilt", "Yüksek tansiyon"],
+        correct: 2,
+        explanation: "Şokta soğuk, nemli cilt, hızlı nabız ve düşük tansiyon görülür."
+    },
+    {
+        level: "kolay",
+        question: "Bilinçsiz hastada ilk yapılacak nedir?",
+        options: ["İlaç vermek", "Havayolu açmak", "Damar yolu açmak", "Nabız bakmak"],
+        correct: 1,
+        explanation: "Bilinçsiz hastada öncelik havayolu açıklığının sağlanmasıdır."
+    },
+    {
+        level: "kolay",
+        question: "Göğüs kompresyonu derinliği ne kadar olmalı?",
+        options: ["3-4 cm", "5-6 cm", "7-8 cm", "9-10 cm"],
+        correct: 1,
+        explanation: "Yetişkinde göğüs kompresyonu derinliği 5-6 cm olmalıdır."
+    },
+    
+    // Orta Seviye
+    {
+        level: "orta",
+        question: "STEMI'de PCI hedef süresi nedir?",
+        options: ["60 dakika", "90 dakika", "120 dakika", "180 dakika"],
+        correct: 1,
+        explanation: "STEMI'de PCI (primer anjiyoplasti) hedef süresi 90 dakikadır."
+    },
+    {
+        level: "orta",
+        question: "Çocuklarda bradikardi sınırı nedir?",
+        options: ["<50/dk", "<60/dk", "<70/dk", "<80/dk"],
+        correct: 2,
+        explanation: "Çocuklarda bradikardi genellikle <70/dk olarak kabul edilir."
+    },
+    {
+        level: "orta",
+        question: "Magnezyum sülfat dozu (preeklampsi) nedir?",
+        options: ["2-4 gr", "4-6 gr", "6-8 gr", "8-10 gr"],
+        correct: 1,
+        explanation: "Preeklampside MgSO4 yükleme dozu 4-6 gr IV'dir."
+    },
+    {
+        level: "orta",
+        question: "Krup tedavisinde kullanılan steroid nedir?",
+        options: ["Prednizolon", "Deksametazon", "Hidrokortizol", "Metilprednizolon"],
+        correct: 1,
+        explanation: "Krup tedavisinde deksametazon 0.6 mg/kg kullanılır."
+    },
+    {
+        level: "orta",
+        question: "Hipotermik arrest'te adrenalin ne zaman verilir?",
+        options: ["Hemen", "Sıcaklık >30°C", "Sıcaklık >32°C", "Sıcaklık >35°C"],
+        correct: 1,
+        explanation: "Hipotermik arrest'te sıcaklık >30°C olana kadar adrenalin verilmez."
+    },
+    
+    // Zor Seviye
+    {
+        level: "zor",
+        question: "Crush sendromunda hangi elektrolit bozukluğu en tehlikelidir?",
+        options: ["Hiponatremi", "Hiperkalemi", "Hipokalsemi", "Hipernatremi"],
+        correct: 1,
+        explanation: "Crush sendromunda hiperkalemi en tehlikeli komplikasyondur."
+    },
+    {
+        level: "zor",
+        question: "Post-ROSC hedef SpO2 nedir?",
+        options: ["88-92%", "92-96%", "94-98%", "98-100%"],
+        correct: 2,
+        explanation: "Post-ROSC hedef SpO2 %94-98'dir (hiperoksiden kaçınılır)."
+    },
+    {
+        level: "zor",
+        question: "Adenozin'in yarı ömrü ne kadardır?",
+        options: ["5-10 saniye", "10-15 saniye", "15-20 saniye", "20-30 saniye"],
+        correct: 0,
+        explanation: "Adenozin'in yarı ömrü çok kısa, yaklaşık 5-10 saniyedir."
+    },
+    {
+        level: "zor",
+        question: "Epiglotit'te hangi pozisyon tercih edilir?",
+        options: ["Sırt üstü", "Yan yatar", "Tripod pozisyonu", "Trendelenburg"],
+        correct: 2,
+        explanation: "Epiglotit'te çocuk en rahat ettiği tripod pozisyonunda tutulur."
+    },
+    {
+        level: "zor",
+        question: "Torsades de Pointes tedavisinde kullanılan ilaç nedir?",
+        options: ["Amiodaron", "Lidokain", "Magnezyum", "Prokainamid"],
+        correct: 2,
+        explanation: "Torsades de Pointes tedavisinde magnezyum sülfat kullanılır."
+    },
+    
+    // Ek Zor Seviye Sorular (66-95)
+    {
+        level: "zor",
+        question: "Malign hipertermi mortalite oranı nedir?",
+        options: ["%10-20", "%20-40", "%40-60", "%60-80"],
+        correct: 2,
+        explanation: "Malign hipertermi mortalite oranı %40-60 arasındadır."
+    },
+    {
+        level: "zor",
+        question: "Siyanür zehirlenmesinde hidroksikobalomin dozu nedir?",
+        options: ["2.5 g", "5 g", "7.5 g", "10 g"],
+        correct: 1,
+        explanation: "Siyanür zehirlenmesinde hidroksikobalomin dozu 5 g IV'dir."
+    },
+    {
+        level: "zor",
+        question: "Rhabdomyolizde miyoglobin böbrek hasarı eşiği nedir?",
+        options: [">500 ng/mL", ">1000 ng/mL", ">1500 ng/mL", ">2000 ng/mL"],
+        correct: 2,
+        explanation: "Rhabdomyolizde miyoglobin >1500 ng/mL böbrek hasarı riski yaratır."
+    },
+    {
+        level: "zor",
+        question: "Hipotermide J (Osborn) dalgası hangi sıcaklıkta görülür?",
+        options: ["<35°C", "<32°C", "<30°C", "<28°C"],
+        correct: 1,
+        explanation: "J (Osborn) dalgası genellikle <32°C'de görülmeye başlar."
+    },
+    {
+        level: "zor",
+        question: "Çocukta epiglotit mortalite oranı nedir?",
+        options: ["%1-2", "%5-10", "%10-15", "%15-20"],
+        correct: 0,
+        explanation: "Çocukta epiglotit mortalite oranı %1-2'dir (erken tanı ve tedavi ile)."
+    },
+    {
+        level: "zor",
+        question: "Akut aort diseksiyonunda D-dimer negatif olma oranı nedir?",
+        options: ["%1", "%5", "%10", "%15"],
+        correct: 1,
+        explanation: "Akut aort diseksiyonunda D-dimer %5 oranında negatif olabilir."
+    },
+    {
+        level: "zor",
+        question: "Hiperkalsemik krizde kalsitonin dozu nedir?",
+        options: ["2-4 Ü/kg", "4-8 Ü/kg", "8-12 Ü/kg", "12-16 Ü/kg"],
+        correct: 1,
+        explanation: "Hiperkalsemik krizde kalsitonin dozu 4-8 Ü/kg'dır."
+    },
+    {
+        level: "zor",
+        question: "Çocukta status epilepticus refrakter kabul edilme süresi nedir?",
+        options: ["30 dakika", "45 dakika", "60 dakika", "90 dakika"],
+        correct: 2,
+        explanation: "Çocukta status epilepticus 60 dakika sonra refrakter kabul edilir."
+    },
+    {
+        level: "zor",
+        question: "Akut pankreatitte APACHE II skoru kaç puanın üzeri kötü prognoz göstergesidir?",
+        options: [">6", ">8", ">10", ">12"],
+        correct: 1,
+        explanation: "APACHE II skoru >8 puan kötü prognoz göstergesidir."
+    },
+    {
+        level: "zor",
+        question: "Çocukta sepsis tanısında PELOD-2 skoru kaç organa bakar?",
+        options: ["4", "5", "6", "7"],
+        correct: 1,
+        explanation: "PELOD-2 skoru 5 organ sistemini değerlendirir."
+    },
+    {
+        level: "zor",
+        question: "Hiponatremi düzeltmesinde osmotik demiyelinizasyon riski hangi hızda artar?",
+        options: [">8 mEq/L/gün", ">10 mEq/L/gün", ">12 mEq/L/gün", ">15 mEq/L/gün"],
+        correct: 2,
+        explanation: "Osmotik demiyelinizasyon riski >12 mEq/L/gün düzeltme hızında artar."
+    },
+    {
+        level: "zor",
+        question: "Çocukta diabetik ketoasidoz beyin ödemi riski hangi faktörle artar?",
+        options: ["Hızlı sıvı", "Yavaş insülin", "Bikarbonat", "Hepsi"],
+        correct: 3,
+        explanation: "DKA'da beyin ödemi riski hızlı sıvı, bikarbonat ve ani glukoz düşüşü ile artar."
+    },
+    {
+        level: "zor",
+        question: "Malign hipertermi tedavisinde dantrolen maksimum dozu nedir?",
+        options: ["5 mg/kg", "10 mg/kg", "15 mg/kg", "20 mg/kg"],
+        correct: 1,
+        explanation: "Malign hipertermide dantrolen maksimum dozu 10 mg/kg'dır."
+    },
+    {
+        level: "zor",
+        question: "Organofosfor zehirlenmesinde pralidoksim dozu nedir?",
+        options: ["15-25 mg/kg", "25-50 mg/kg", "50-75 mg/kg", "75-100 mg/kg"],
+        correct: 1,
+        explanation: "Organofosfor zehirlenmesinde pralidoksim dozu 25-50 mg/kg'dır."
+    },
+    {
+        level: "zor",
+        question: "Hiperosmolar hiperglisemik durumda osmolalite sınırı nedir?",
+        options: [">300 mOsm/kg", ">320 mOsm/kg", ">340 mOsm/kg", ">360 mOsm/kg"],
+        correct: 1,
+        explanation: "HHS'de osmolalite >320 mOsm/kg olarak tanımlanır."
+    },
+    {
+        level: "zor",
+        question: "Aort diseksiyonu DeBakey sınıflamasında Tip III nedir?",
+        options: ["Çıkan aort", "Aort arkı", "İnen aort", "Abdominal aort"],
+        correct: 2,
+        explanation: "DeBakey Tip III sadece inen aortu tutar."
+    },
+    {
+        level: "zor",
+        question: "Çocukta defibrilasyon maksimum dozu nedir?",
+        options: ["4 J/kg", "6 J/kg", "8 J/kg", "10 J/kg"],
+        correct: 3,
+        explanation: "Çocukta defibrilasyon maksimum dozu 10 J/kg'dır."
+    },
+    {
+        level: "zor",
+        question: "Metanol zehirlenmesinde fomepizol dozu nedir?",
+        options: ["10 mg/kg", "15 mg/kg", "20 mg/kg", "25 mg/kg"],
+        correct: 1,
+        explanation: "Metanol zehirlenmesinde fomepizol yükleme dozu 15 mg/kg'dır."
+    },
+    {
+        level: "zor",
+        question: "Tension pnömotoraks'ta hangi interkostal aralık tercih edilir?",
+        options: ["2. IKA", "3. IKA", "4. IKA", "5. IKA"],
+        correct: 0,
+        explanation: "Tension pnömotoraks'ta 2. interkostal aralık midklaviküler hattan tercih edilir."
+    },
+    {
+        level: "zor",
+        question: "Kardiyak tamponad'da Beck triadı nedir?",
+        options: ["JVD, hipotansiyon, kalp sesleri azalması", "Taşikardi, hipertansiyon, dispne", "Bradikardi, hipertansiyon, düzensiz solunum", "Ateş, taşikardi, hipotansiyon"],
+        correct: 0,
+        explanation: "Beck triadı: JVD, hipotansiyon ve kalp seslerinde azalma."
+    },
+    {
+        level: "zor",
+        question: "Hiperkalsemi tedavisinde bifosfonat etkisi ne zaman başlar?",
+        options: ["2-4 saat", "12-24 saat", "24-48 saat", "48-72 saat"],
+        correct: 2,
+        explanation: "Bifosfonatların hiperkalsemi üzerine etkisi 24-48 saatte başlar."
+    },
+    {
+        level: "zor",
+        question: "Çocukta sepsis tanısında hangi skor kullanılır?",
+        options: ["SOFA", "qSOFA", "PELOD", "PRISM"],
+        correct: 2,
+        explanation: "Çocukta sepsis tanısında PELOD (Pediatric Logistic Organ Dysfunction) skoru kullanılır."
+    },
+    {
+        level: "zor",
+        question: "Akut böbrek yetmezliğinde RIFLE sınıflamasında 'I' nedir?",
+        options: ["Injury", "Insufficiency", "Ischemia", "Inflammation"],
+        correct: 0,
+        explanation: "RIFLE sınıflamasında 'I' Injury (yaralanma) anlamına gelir."
+    },
+    {
+        level: "zor",
+        question: "Rhabdomyolizde CK düzeyi hangi değerin üzerinde tanı koydurur?",
+        options: [">1.000 U/L", ">5.000 U/L", ">10.000 U/L", ">50.000 U/L"],
+        correct: 1,
+        explanation: "Rhabdomyoliz tanısı için CK >5.000 U/L olmalıdır."
+    },
+    {
+        level: "zor",
+        question: "Hipotermik arrest'te hangi sıcaklıkta kardiyak arrest riski en yüksektir?",
+        options: ["<35°C", "<32°C", "<28°C", "<25°C"],
+        correct: 2,
+        explanation: "Hipotermide <28°C'de kardiyak arrest riski en yüksektir."
+    },
+    {
+        level: "zor",
+        question: "Çocukta status epilepticus mortalite oranı nedir?",
+        options: ["%1-3", "%3-5", "%5-10", "%10-15"],
+        correct: 1,
+        explanation: "Çocukta status epilepticus mortalite oranı %3-5'tir."
+    },
+    {
+        level: "zor",
+        question: "Akut pankreatitte Balthazar CT skorunda Grade E nedir?",
+        options: ["Normal pankreas", "Fokal büyüme", "Peripankreatik sıvı", "Nekroz >50%"],
+        correct: 3,
+        explanation: "Balthazar Grade E pankreasta nekroz >50% olmasıdır."
+    },
+    {
+        level: "zor",
+        question: "Siyanür zehirlenmesinde laktat/piruvat oranı nasıldır?",
+        options: ["Normal", "Düşük", "Yüksek", "Değişken"],
+        correct: 2,
+        explanation: "Siyanür zehirlenmesinde laktat/piruvat oranı yüksektir."
+    },
+    {
+        level: "zor",
+        question: "Malign hipertermi insidansı nedir?",
+        options: ["1:5.000", "1:15.000", "1:50.000", "1:100.000"],
+        correct: 2,
+        explanation: "Malign hipertermi insidansı yaklaşık 1:50.000'dir."
+    },
+    
+    // EK KOLAY SORULAR (50-150)
+    {
+        level: "kolay",
+        question: "Defibrilasyon için hangi ritim gereklidir?",
+        options: ["Asistoli", "VF/VT", "Bradikardi", "Normal ritim"],
+        correct: 1,
+        explanation: "Defibrilasyon sadece VF (ventriküler fibrilasyon) ve nabızsız VT'de uygulanır."
+    },
+    {
+        level: "kolay",
+        question: "Oksijen satürasyonu hedefi nedir?",
+        options: ["85-90%", "90-94%", "94-98%", "98-100%"],
+        correct: 2,
+        explanation: "Normal oksijen satürasyonu hedefi %94-98 arasındadır."
+    },
+    {
+        level: "kolay",
+        question: "Travmalı hastada öncelik nedir?",
+        options: ["Ağrı kontrolü", "C-spine koruması", "Damar yolu", "Röntgen çekimi"],
+        correct: 1,
+        explanation: "Travmalı hastada servikal omurga koruması önceliklidir."
+    },
+    {
+        level: "kolay",
+        question: "Yanık hastasında ilk müdahale nedir?",
+        options: ["Merhem sürmek", "Soğuk su", "Buz uygulamak", "Antibiyotik"],
+        correct: 1,
+        explanation: "Yanık hastasında ilk müdahale soğuk (ılık) su ile soğutmadır."
+    },
+    {
+        level: "kolay",
+        question: "Astım atağında ilk ilaç nedir?",
+        options: ["Steroid", "Salbutamol", "Antibiyotik", "Morfin"],
+        correct: 1,
+        explanation: "Astım atağında ilk tercih bronkodilatör olan salbutamoldür."
+    },
+    {
+        level: "kolay",
+        question: "Hipoglisemi belirtisi hangisidir?",
+        options: ["Yüksek ateş", "Terleme", "Yavaş nabız", "Hipertansiyon"],
+        correct: 1,
+        explanation: "Hipoglisemide terleme, titreme, konfüzyon görülür."
+    },
+    {
+        level: "kolay",
+        question: "Normal çocuk kalp hızı (1-2 yaş) nedir?",
+        options: ["60-100/dk", "80-130/dk", "100-160/dk", "120-180/dk"],
+        correct: 2,
+        explanation: "1-2 yaş çocukta normal kalp hızı 100-160/dakikadır."
+    },
+    {
+        level: "kolay",
+        question: "Anafilaksi tedavisinde adrenalin dozu nedir?",
+        options: ["0.1 mg", "0.3-0.5 mg", "1 mg", "2 mg"],
+        correct: 1,
+        explanation: "Anafilakside adrenalin dozu 0.3-0.5 mg IM'dir."
+    },
+    {
+        level: "kolay",
+        question: "Çocukta bradikardi sınırı nedir?",
+        options: ["<50/dk", "<60/dk", "<70/dk", "<80/dk"],
+        correct: 2,
+        explanation: "Çocuklarda bradikardi genellikle <70/dk olarak kabul edilir."
+    },
+    {
+        level: "kolay",
+        question: "Göğüs kompresyonu hızı nedir?",
+        options: ["80-100/dk", "100-120/dk", "120-140/dk", "140-160/dk"],
+        correct: 1,
+        explanation: "Göğüs kompresyonu hızı 100-120/dakika olmalıdır."
+    },
+    {
+        level: "kolay",
+        question: "Şok pozisyonu nasıldır?",
+        options: ["Baş yukarı", "Düz yatar", "Bacaklar yukarı", "Yan yatar"],
+        correct: 2,
+        explanation: "Şokta bacaklar 15-30 derece yükseltilir (Trendelenburg)."
+    },
+    {
+        level: "kolay",
+        question: "Bilinçsiz hastada havayolu nasıl açılır?",
+        options: ["Baş geriye eğme", "Çene kaldırma", "Her ikisi", "Entübasyon"],
+        correct: 2,
+        explanation: "Bilinçsiz hastada baş geriye eğme-çene kaldırma manevrası yapılır."
+    },
+    {
+        level: "kolay",
+        question: "Krup hastalığının tipik sesi nedir?",
+        options: ["Wheezing", "Stridor", "Ronküs", "Ral"],
+        correct: 1,
+        explanation: "Krup hastalığında tipik inspiratuar stridor duyulur."
+    },
+    {
+        level: "kolay",
+        question: "Epipen nasıl uygulanır?",
+        options: ["IV", "IM (uyluk)", "SC", "Oral"],
+        correct: 1,
+        explanation: "Epipen uyluk kasına (vastus lateralis) IM uygulanır."
+    },
+    {
+        level: "kolay",
+        question: "Çocukta sıvı resüsitasyonu dozu nedir?",
+        options: ["10 ml/kg", "20 ml/kg", "30 ml/kg", "40 ml/kg"],
+        correct: 1,
+        explanation: "Çocukta sıvı resüsitasyonu 20 ml/kg kristaloid ile başlanır."
+    },
+    {
+        level: "kolay",
+        question: "Hipotermide vücut sıcaklığı kaç derecenin altındadır?",
+        options: ["<37°C", "<36°C", "<35°C", "<34°C"],
+        correct: 2,
+        explanation: "Hipotermi vücut sıcaklığının <35°C olmasıdır."
+    },
+    {
+        level: "kolay",
+        question: "Travmalı hastada C-spine nasıl korunur?",
+        options: ["Boyunluk", "Manuel stabilizasyon", "Her ikisi", "Gerek yok"],
+        correct: 2,
+        explanation: "C-spine hem manuel stabilizasyon hem boyunluk ile korunur."
+    },
+    {
+        level: "kolay",
+        question: "Göğüs kompresyonunda eller nereye konur?",
+        options: ["Üst sternum", "Alt sternum", "Orta sternum", "Xiphoid"],
+        correct: 2,
+        explanation: "Eller sternumun alt yarısına, meme başları arasına konur."
+    },
+    {
+        level: "kolay",
+        question: "Çocukta adrenalin dozu nedir?",
+        options: ["0.01 mg/kg", "0.1 mg/kg", "1 mg/kg", "10 mg/kg"],
+        correct: 0,
+        explanation: "Çocukta adrenalin dozu 0.01 mg/kg (0.1 ml/kg 1:10.000)'dır."
+    },
+    {
+        level: "kolay",
+        question: "Astımda nebül nasıl verilir?",
+        options: ["Yavaş", "Hızlı", "O2 ile", "Hava ile"],
+        correct: 2,
+        explanation: "Nebül oksijen ile 6-8 L/dk akımla verilir."
+    },
+    {
+        level: "kolay",
+        question: "Yanık alanı nasıl hesaplanır?",
+        options: ["Kural 9", "Kural 10", "Kural 11", "Kural 15"],
+        correct: 0,
+        explanation: "Yanık alanı 'Kural 9' ile hesaplanır (her vücut bölgesi %9)."
+    },
+    {
+        level: "kolay",
+        question: "Zehirlenme şüphesinde hangi numara aranır?",
+        options: ["112", "114", "155", "110"],
+        correct: 1,
+        explanation: "Zehirlenme şüphesinde UZEM (114) aranır."
+    },
+    {
+        level: "kolay",
+        question: "Diyabetik hastada şeker yüksekliği belirtisi nedir?",
+        options: ["Terleme", "Susuzluk", "Titreme", "Baş dönmesi"],
+        correct: 1,
+        explanation: "Hiperglisemide susuzluk, sık idrara çıkma, yorgunluk görülür."
+    },
+    {
+        level: "kolay",
+        question: "Suda boğulma durumunda ilk yapılacak nedir?",
+        options: ["Sıvı çıkarmak", "Solunum kontrolü", "Kalp masajı", "Isıtmak"],
+        correct: 1,
+        explanation: "Suda boğulmada önce solunum yolu açıklığı kontrol edilir."
+    },
+    {
+        level: "kolay",
+        question: "Gebelikte hangi pozisyon tercih edilir?",
+        options: ["Sırtüstü", "Sol yan", "Sağ yan", "Oturur"],
+        correct: 1,
+        explanation: "Gebelikte sol yan pozisyonu uteroplasental akımı artırır."
+    },
+    {
+        level: "kolay",
+        question: "Çocukta defibrilasyon dozu nedir?",
+        options: ["1 J/kg", "2 J/kg", "4 J/kg", "10 J/kg"],
+        correct: 1,
+        explanation: "Çocukta defibrilasyon dozu 2 J/kg ile başlanır."
+    },
+    {
+        level: "kolay",
+        question: "Hipoglisemide hangi ilaç verilir?",
+        options: ["İnsülin", "Glukoz", "Adrenalin", "Atropin"],
+        correct: 1,
+        explanation: "Hipoglisemide %50 dekstroz veya glukagon verilir."
+    },
+    {
+        level: "kolay",
+        question: "Çocukta IO yeri neresidir?",
+        options: ["Humerus", "Tibia", "Femur", "Radius"],
+        correct: 1,
+        explanation: "Çocukta IO genellikle tibia proksimaline uygulanır."
+    },
+    {
+        level: "kolay",
+        question: "Astım atağında hangi pozisyon verilir?",
+        options: ["Yatar", "Oturur", "Yan yatar", "Baş aşağı"],
+        correct: 1,
+        explanation: "Astım atağında hasta oturur pozisyonda tutulur."
+    },
+    {
+        level: "kolay",
+        question: "Çocukta normal solunum sayısı (1 yaş) nedir?",
+        options: ["12-20/dk", "20-30/dk", "30-40/dk", "40-50/dk"],
+        correct: 2,
+        explanation: "1 yaş çocukta normal solunum sayısı 30-40/dakikadır."
+    },
+    
+    // EK ORTA SORULAR (151-200)
+    {
+        level: "orta",
+        question: "STEMI'de fibrinolitik hedef süresi nedir?",
+        options: ["30 dakika", "60 dakika", "90 dakika", "120 dakika"],
+        correct: 0,
+        explanation: "STEMI'de fibrinolitik tedavi hedef süresi 30 dakikadır."
+    },
+    {
+        level: "orta",
+        question: "Çocukta hipotansiyon sınırı (1-10 yaş) nedir?",
+        options: ["<70 mmHg", "<70+(2×yaş)", "<80 mmHg", "<90 mmHg"],
+        correct: 1,
+        explanation: "Çocukta hipotansiyon sınırı <70+(2×yaş) mmHg'dır."
+    },
+    {
+        level: "orta",
+        question: "Preeklampside MgSO4 idame dozu nedir?",
+        options: ["0.5-1 gr/saat", "1-2 gr/saat", "2-3 gr/saat", "3-4 gr/saat"],
+        correct: 1,
+        explanation: "Preeklampside MgSO4 idame dozu 1-2 gr/saat'tir."
+    },
+    {
+        level: "orta",
+        question: "Krup tedavisinde deksametazon dozu nedir?",
+        options: ["0.15 mg/kg", "0.6 mg/kg", "1 mg/kg", "2 mg/kg"],
+        correct: 1,
+        explanation: "Krup tedavisinde deksametazon 0.6 mg/kg tek doz verilir."
+    },
+    {
+        level: "orta",
+        question: "Hipotermik arrest'te şok sınırı nedir?",
+        options: ["1 şok", "2 şok", "3 şok", "5 şok"],
+        correct: 2,
+        explanation: "Hipotermik arrest'te (<30°C) şok sayısı 3 ile sınırlanır."
+    },
+    {
+        level: "orta",
+        question: "Çocukta status epilepticus süresi nedir?",
+        options: ["5 dakika", "10 dakika", "15 dakika", "30 dakika"],
+        correct: 0,
+        explanation: "Çocukta status epilepticus 5 dakika süren nöbet olarak tanımlanır."
+    },
+    {
+        level: "orta",
+        question: "Adenozin'in etki süresi ne kadardır?",
+        options: ["10-20 saniye", "1-2 dakika", "5-10 dakika", "15-30 dakika"],
+        correct: 0,
+        explanation: "Adenozin'in etki süresi çok kısa, 10-20 saniyedir."
+    },
+    {
+        level: "orta",
+        question: "Çocukta amiodaron dozu nedir?",
+        options: ["5 mg/kg", "10 mg/kg", "15 mg/kg", "20 mg/kg"],
+        correct: 0,
+        explanation: "Çocukta amiodaron dozu 5 mg/kg IV'dir."
+    },
+    {
+        level: "orta",
+        question: "Yanık hastasında Parkland formülü nedir?",
+        options: ["2 ml/kg/%", "3 ml/kg/%", "4 ml/kg/%", "5 ml/kg/%"],
+        correct: 2,
+        explanation: "Parkland formülü: 4 ml/kg/% yanık alanı (ilk 24 saat)."
+    },
+    {
+        level: "orta",
+        question: "Çocukta midazolam dozu (nöbet) nedir?",
+        options: ["0.1 mg/kg", "0.2 mg/kg", "0.5 mg/kg", "1 mg/kg"],
+        correct: 1,
+        explanation: "Çocukta midazolam dozu 0.2 mg/kg IV/IO'dur."
+    },
+    {
+        level: "orta",
+        question: "Hipoglisemide dekstroz dozu nedir?",
+        options: ["0.5-1 gr/kg", "1-2 gr/kg", "2-3 gr/kg", "3-4 gr/kg"],
+        correct: 0,
+        explanation: "Hipoglisemide dekstroz dozu 0.5-1 gr/kg'dır."
+    },
+    {
+        level: "orta",
+        question: "Çocukta atropin dozu nedir?",
+        options: ["0.01 mg/kg", "0.02 mg/kg", "0.05 mg/kg", "0.1 mg/kg"],
+        correct: 1,
+        explanation: "Çocukta atropin dozu 0.02 mg/kg (min 0.1 mg)'dır."
+    },
+    {
+        level: "orta",
+        question: "Astımda magnezyum dozu nedir?",
+        options: ["25-50 mg/kg", "50-75 mg/kg", "75-100 mg/kg", "100-125 mg/kg"],
+        correct: 0,
+        explanation: "Astımda magnezyum sülfat dozu 25-50 mg/kg'dır."
+    },
+    {
+        level: "orta",
+        question: "Çocukta lorazepam dozu nedir?",
+        options: ["0.05 mg/kg", "0.1 mg/kg", "0.2 mg/kg", "0.5 mg/kg"],
+        correct: 1,
+        explanation: "Çocukta lorazepam dozu 0.1 mg/kg IV'dir."
+    },
+    {
+        level: "orta",
+        question: "Sepsis tanısında qSOFA kriterleri kaç tanedir?",
+        options: ["2", "3", "4", "5"],
+        correct: 1,
+        explanation: "qSOFA 3 kriterden oluşur: GKS<15, SBP<100, SS≥22."
+    },
+    {
+        level: "orta",
+        question: "Çocukta dopamin dozu nedir?",
+        options: ["2-5 mcg/kg/dk", "5-10 mcg/kg/dk", "10-20 mcg/kg/dk", "20-30 mcg/kg/dk"],
+        correct: 1,
+        explanation: "Çocukta dopamin dozu 5-10 mcg/kg/dk ile başlanır."
+    },
+    {
+        level: "orta",
+        question: "Hiperkalsemi tedavisinde furosemid dozu nedir?",
+        options: ["0.5-1 mg/kg", "1-2 mg/kg", "2-3 mg/kg", "3-4 mg/kg"],
+        correct: 1,
+        explanation: "Hiperkalsemi tedavisinde furosemid 1-2 mg/kg verilir."
+    },
+    {
+        level: "orta",
+        question: "Çocukta naloksan dozu nedir?",
+        options: ["0.01 mg/kg", "0.1 mg/kg", "1 mg/kg", "2 mg/kg"],
+        correct: 1,
+        explanation: "Çocukta naloksan dozu 0.1 mg/kg IV/IO'dur."
+    },
+    {
+        level: "orta",
+        question: "Astımda prednizolon dozu nedir?",
+        options: ["0.5-1 mg/kg", "1-2 mg/kg", "2-3 mg/kg", "3-4 mg/kg"],
+        correct: 1,
+        explanation: "Astımda prednizolon dozu 1-2 mg/kg'dır."
+    },
+    {
+        level: "orta",
+        question: "Çocukta fentanil dozu nedir?",
+        options: ["0.5-1 mcg/kg", "1-2 mcg/kg", "2-3 mcg/kg", "3-5 mcg/kg"],
+        correct: 1,
+        explanation: "Çocukta fentanil dozu 1-2 mcg/kg IV'dir."
+    },
+    {
+        level: "orta",
+        question: "Hipoglisemide glukagon dozu nedir?",
+        options: ["0.5 mg", "1 mg", "1.5 mg", "2 mg"],
+        correct: 1,
+        explanation: "Hipoglisemide glukagon dozu 1 mg IM'dir."
+    },
+    {
+        level: "orta",
+        question: "Çocukta ketamin dozu nedir?",
+        options: ["0.5-1 mg/kg", "1-2 mg/kg", "2-3 mg/kg", "3-4 mg/kg"],
+        correct: 1,
+        explanation: "Çocukta ketamin dozu 1-2 mg/kg IV'dir."
+    },
+    {
+        level: "orta",
+        question: "Anafilakside H1 antihistaminik dozu nedir?",
+        options: ["0.5-1 mg/kg", "1-2 mg/kg", "2-3 mg/kg", "3-4 mg/kg"],
+        correct: 1,
+        explanation: "Anafilakside difenhidramin 1-2 mg/kg verilir."
+    },
+    {
+        level: "orta",
+        question: "Çocukta morfin dozu nedir?",
+        options: ["0.05-0.1 mg/kg", "0.1-0.2 mg/kg", "0.2-0.3 mg/kg", "0.3-0.5 mg/kg"],
+        correct: 1,
+        explanation: "Çocukta morfin dozu 0.1-0.2 mg/kg IV'dir."
+    },
+    {
+        level: "orta",
+        question: "Hiperkalsemide kalsiyum glukonat dozu nedir?",
+        options: ["50-100 mg/kg", "100-200 mg/kg", "200-300 mg/kg", "300-400 mg/kg"],
+        correct: 1,
+        explanation: "Hiperkalsemide kalsiyum glukonat 100-200 mg/kg verilir."
+    },
+    
+    // EK ZOR SORULAR (201-300)
+    {
+        level: "zor",
+        question: "Malign hipertermi tedavisinde dantrolen yükleme dozu nedir?",
+        options: ["1-2.5 mg/kg", "2.5-5 mg/kg", "5-10 mg/kg", "10-15 mg/kg"],
+        correct: 0,
+        explanation: "Malign hipertermide dantrolen yükleme dozu 1-2.5 mg/kg'dır."
+    },
+    {
+        level: "zor",
+        question: "Organofosfor zehirlenmesinde atropin dozu nedir?",
+        options: ["0.05 mg/kg", "0.1 mg/kg", "0.2 mg/kg", "0.5 mg/kg"],
+        correct: 0,
+        explanation: "Organofosfor zehirlenmesinde atropin 0.05 mg/kg ile başlanır."
+    },
+    {
+        level: "zor",
+        question: "Hiperosmolar hiperglisemik durumda sıvı açığı nasıl hesaplanır?",
+        options: ["0.6×kg×(Na-140)", "0.6×kg×(Glu-100)/18", "Her ikisi", "Hiçbiri"],
+        correct: 2,
+        explanation: "HHS'de hem sodyum hem glukoz bazlı hesaplama yapılır."
+    },
+    {
+        level: "zor",
+        question: "Aort diseksiyonu Stanford sınıflamasında Tip B nedir?",
+        options: ["Çıkan aort", "İnen aort", "Aort arkı", "Abdominal aort"],
+        correct: 1,
+        explanation: "Stanford Tip B sadece inen aortu tutar."
+    },
+    {
+        level: "zor",
+        question: "Çocukta sepsis tanısında PELOD skoru kaç organa bakar?",
+        options: ["4", "5", "6", "7"],
+        correct: 1,
+        explanation: "PELOD skoru 5 organ sistemini değerlendirir."
+    },
+    {
+        level: "zor",
+        question: "Hiponatremi düzeltmesinde güvenli hız nedir?",
+        options: ["<6 mEq/L/gün", "<8 mEq/L/gün", "<10 mEq/L/gün", "<12 mEq/L/gün"],
+        correct: 3,
+        explanation: "Hiponatremi düzeltmesi <12 mEq/L/gün olmalıdır."
+    },
+    {
+        level: "zor",
+        question: "Çocukta diabetik ketoasidoz sıvı hızı nedir?",
+        options: ["1.5×idame", "2×idame", "2.5×idame", "3×idame"],
+        correct: 0,
+        explanation: "DKA'da sıvı hızı 1.5×idame ile başlanır."
+    },
+    {
+        level: "zor",
+        question: "Malign hipertermi mortalite oranı nedir?",
+        options: ["%5-10", "%10-20", "%20-30", "%30-40"],
+        correct: 1,
+        explanation: "Malign hipertermi mortalite oranı %10-20'dir."
+    },
+    {
+        level: "zor",
+        question: "Siyanür zehirlenmesinde hidroksikobalomin maksimum dozu nedir?",
+        options: ["5 g", "10 g", "15 g", "20 g"],
+        correct: 1,
+        explanation: "Hidroksikobalomin maksimum dozu 10 g'dır."
+    },
+    {
+        level: "zor",
+        question: "Rhabdomyolizde CK yüksekliği hangi düzeyde tehlikelidir?",
+        options: [">1.000 U/L", ">5.000 U/L", ">10.000 U/L", ">50.000 U/L"],
+        correct: 3,
+        explanation: "CK >50.000 U/L böbrek yetmezliği riski yüksektir."
+    },
+    {
+        level: "zor",
+        question: "Hipotermide rewarming hızı nedir?",
+        options: ["0.5-1°C/saat", "1-2°C/saat", "2-3°C/saat", "3-4°C/saat"],
+        correct: 1,
+        explanation: "Hipotermide rewarming hızı 1-2°C/saat olmalıdır."
+    },
+    {
+        level: "zor",
+        question: "Çocukta epiglotit mortalite oranı nedir?",
+        options: ["%1", "%5", "%10", "%15"],
+        correct: 0,
+        explanation: "Çocukta epiglotit mortalite oranı %1'dir."
+    },
+    {
+        level: "zor",
+        question: "Akut aort diseksiyonunda D-dimer sensitivitesi nedir?",
+        options: ["%85", "%90", "%95", "%99"],
+        correct: 2,
+        explanation: "Akut aort diseksiyonunda D-dimer sensitivitesi %95'tir."
+    },
+    {
+        level: "zor",
+        question: "Hiperkalsemik krizde bifosfonat dozu nedir?",
+        options: ["30 mg", "60 mg", "90 mg", "120 mg"],
+        correct: 2,
+        explanation: "Hiperkalsemik krizde pamidronat 90 mg verilir."
+    },
+    {
+        level: "zor",
+        question: "Çocukta status epilepticus refrakter süresi nedir?",
+        options: ["30 dakika", "60 dakika", "90 dakika", "120 dakika"],
+        correct: 1,
+        explanation: "Çocukta refrakter status epilepticus 60 dakikadır."
+    },
+    {
+        level: "zor",
+        question: "Akut pankreatitte Ranson skoru kaç puan kötü prognoz göstergesidir?",
+        options: [">3", ">5", ">7", ">9"],
+        correct: 0,
+        explanation: "Ranson skoru >3 puan kötü prognoz göstergesidir."
+    },
+    {
+        level: "zor",
+        question: "Çocukta sepsis tanısında hangi laktat düzeyi kritiktir?",
+        options: [">2 mmol/L", ">4 mmol/L", ">6 mmol/L", ">8 mmol/L"],
+        correct: 1,
+        explanation: "Çocukta laktat >4 mmol/L septik şok göstergesidir."
+    },
+    {
+        level: "zor",
+        question: "Hiponatremi düzeltmesinde osmotik demiyelinizasyon riski hangi hızda artar?",
+        options: [">8 mEq/L/gün", ">10 mEq/L/gün", ">12 mEq/L/gün", ">15 mEq/L/gün"],
+        correct: 2,
+        explanation: "Osmotik demiyelinizasyon riski >12 mEq/L/gün düzeltme hızında artar."
+    },
+    {
+        level: "zor",
+        question: "Çocukta diabetik ketoasidoz beyin ödemi riski hangi faktörle artar?",
+        options: ["Hızlı sıvı", "Yavaş insülin", "Bikarbonat", "Hepsi"],
+        correct: 3,
+        explanation: "DKA'da beyin ödemi riski hızlı sıvı, bikarbonat ve ani glukoz düşüşü ile artar."
+    },
+    {
+        level: "zor",
+        question: "Malign hipertermi tedavisinde dantrolen maksimum dozu nedir?",
+        options: ["5 mg/kg", "10 mg/kg", "15 mg/kg", "20 mg/kg"],
+        correct: 1,
+        explanation: "Malign hipertermide dantrolen maksimum dozu 10 mg/kg'dır."
+    },
+    {
+        level: "zor",
+        question: "Organofosfor zehirlenmesinde pralidoksim dozu nedir?",
+        options: ["15-25 mg/kg", "25-50 mg/kg", "50-75 mg/kg", "75-100 mg/kg"],
+        correct: 1,
+        explanation: "Organofosfor zehirlenmesinde pralidoksim dozu 25-50 mg/kg'dır."
+    },
+    {
+        level: "zor",
+        question: "Hiperosmolar hiperglisemik durumda osmolalite sınırı nedir?",
+        options: [">300 mOsm/kg", ">320 mOsm/kg", ">340 mOsm/kg", ">360 mOsm/kg"],
+        correct: 1,
+        explanation: "HHS'de osmolalite >320 mOsm/kg olarak tanımlanır."
+    },
+    {
+        level: "zor",
+        question: "Aort diseksiyonu DeBakey sınıflamasında Tip III nedir?",
+        options: ["Çıkan aort", "Aort arkı", "İnen aort", "Abdominal aort"],
+        correct: 2,
+        explanation: "DeBakey Tip III sadece inen aortu tutar."
+    },
+    {
+        level: "zor",
+        question: "Çocukta defibrilasyon maksimum dozu nedir?",
+        options: ["4 J/kg", "6 J/kg", "8 J/kg", "10 J/kg"],
+        correct: 3,
+        explanation: "Çocukta defibrilasyon maksimum dozu 10 J/kg'dır."
+    },
+    {
+        level: "zor",
+        question: "Metanol zehirlenmesinde fomepizol dozu nedir?",
+        options: ["10 mg/kg", "15 mg/kg", "20 mg/kg", "25 mg/kg"],
+        correct: 1,
+        explanation: "Metanol zehirlenmesinde fomepizol yükleme dozu 15 mg/kg'dır."
+    },
+    {
+        level: "zor",
+        question: "Tension pnömotoraks'ta hangi interkostal aralık tercih edilir?",
+        options: ["2. IKA", "3. IKA", "4. IKA", "5. IKA"],
+        correct: 0,
+        explanation: "Tension pnömotoraks'ta 2. interkostal aralık midklaviküler hattan tercih edilir."
+    },
+    {
+        level: "zor",
+        question: "Kardiyak tamponad'da Beck triadı nedir?",
+        options: ["JVD, hipotansiyon, kalp sesleri azalması", "Taşikardi, hipertansiyon, dispne", "Bradikardi, hipertansiyon, düzensiz solunum", "Ateş, taşikardi, hipotansiyon"],
+        correct: 0,
+        explanation: "Beck triadı: JVD, hipotansiyon ve kalp seslerinde azalma."
+    },
+    {
+        level: "zor",
+        question: "Hiperkalsemi tedavisinde bifosfonat etkisi ne zaman başlar?",
+        options: ["2-4 saat", "12-24 saat", "24-48 saat", "48-72 saat"],
+        correct: 2,
+        explanation: "Bifosfonatların hiperkalsemi üzerine etkisi 24-48 saatte başlar."
+    },
+    {
+        level: "zor",
+        question: "Çocukta sepsis tanısında hangi skor kullanılır?",
+        options: ["SOFA", "qSOFA", "PELOD", "PRISM"],
+        correct: 2,
+        explanation: "Çocukta sepsis tanısında PELOD (Pediatric Logistic Organ Dysfunction) skoru kullanılır."
+    },
+    {
+        level: "zor",
+        question: "Akut böbrek yetmezliğinde RIFLE sınıflamasında 'I' nedir?",
+        options: ["Injury", "Insufficiency", "Ischemia", "Inflammation"],
+        correct: 0,
+        explanation: "RIFLE sınıflamasında 'I' Injury (yaralanma) anlamına gelir."
+    },
+    {
+        level: "zor",
+        question: "Rhabdomyolizde CK düzeyi hangi değerin üzerinde tanı koydurur?",
+        options: [">1.000 U/L", ">5.000 U/L", ">10.000 U/L", ">50.000 U/L"],
+        correct: 1,
+        explanation: "Rhabdomyoliz tanısı için CK >5.000 U/L olmalıdır."
+    },
+    {
+        level: "zor",
+        question: "Hipotermik arrest'te hangi sıcaklıkta kardiyak arrest riski en yüksektir?",
+        options: ["<35°C", "<32°C", "<28°C", "<25°C"],
+        correct: 2,
+        explanation: "Hipotermide <28°C'de kardiyak arrest riski en yüksektir."
+    },
+    {
+        level: "zor",
+        question: "Çocukta status epilepticus mortalite oranı nedir?",
+        options: ["%1-3", "%3-5", "%5-10", "%10-15"],
+        correct: 1,
+        explanation: "Çocukta status epilepticus mortalite oranı %3-5'tir."
+    },
+    {
+        level: "zor",
+        question: "Akut pankreatitte Balthazar CT skorunda Grade E nedir?",
+        options: ["Normal pankreas", "Fokal büyüme", "Peripankreatik sıvı", "Nekroz >50%"],
+        correct: 3,
+        explanation: "Balthazar Grade E pankreasta nekroz >50% olmasıdır."
+    },
+    {
+        level: "zor",
+        question: "Siyanür zehirlenmesinde laktat/piruvat oranı nasıldır?",
+        options: ["Normal", "Düşük", "Yüksek", "Değişken"],
+        correct: 2,
+        explanation: "Siyanür zehirlenmesinde laktat/piruvat oranı yüksektir."
+    },
+    {
+        level: "zor",
+        question: "Malign hipertermi insidansı nedir?",
+        options: ["1:5.000", "1:15.000", "1:50.000", "1:100.000"],
+        correct: 2,
+        explanation: "Malign hipertermi insidansı yaklaşık 1:50.000'dir."
+    },
+    {
+        level: "zor",
+        question: "Crush sendromunda kompartman basıncı sınırı nedir?",
+        options: [">20 mmHg", ">30 mmHg", ">40 mmHg", ">50 mmHg"],
+        correct: 1,
+        explanation: "Kompartman sendromunda basınç >30 mmHg tehlikelidir."
+    },
+    {
+        level: "zor",
+        question: "Hipotermide J (Osborn) dalgası hangi derivasyonlarda görülür?",
+        options: ["V1-V3", "V4-V6", "II,III,aVF", "Tüm derivasyonlar"],
+        correct: 3,
+        explanation: "J dalgası genellikle tüm derivasyonlarda görülebilir."
+    },
+    {
+        level: "zor",
+        question: "Çocukta epiglotit'te hangi antibiyotik tercih edilir?",
+        options: ["Ampisilin", "Seftriakson", "Vankomisin", "Klindamisin"],
+        correct: 1,
+        explanation: "Epiglotit'te seftriakson veya sefotaksim tercih edilir."
+    },
+    {
+        level: "zor",
+        question: "Akut aort diseksiyonunda hedef sistolik KB nedir?",
+        options: ["<100 mmHg", "<120 mmHg", "<140 mmHg", "<160 mmHg"],
+        correct: 1,
+        explanation: "Aort diseksiyonunda hedef sistolik KB <120 mmHg'dır."
+    },
+    {
+        level: "zor",
+        question: "Hiperkalsemik krizde hemodiyaliz endikasyonu nedir?",
+        options: [">12 mg/dL", ">14 mg/dL", ">16 mg/dL", ">18 mg/dL"],
+        correct: 2,
+        explanation: "Kalsiyum >16 mg/dL'de hemodiyaliz düşünülür."
+    },
+    {
+        level: "zor",
+        question: "Çocukta status epilepticus'ta fosphenytoin dozu nedir?",
+        options: ["15-20 mg PE/kg", "20-25 mg PE/kg", "25-30 mg PE/kg", "30-35 mg PE/kg"],
+        correct: 0,
+        explanation: "Fosphenytoin dozu 15-20 mg PE/kg'dır."
+    },
+    {
+        level: "zor",
+        question: "Akut pankreatitte lipaz yüksekliği kaç kat tanı koydurur?",
+        options: [">2 kat", ">3 kat", ">4 kat", ">5 kat"],
+        correct: 1,
+        explanation: "Lipaz >3 kat yükseklik akut pankreatit tanısı koydurur."
+    },
+    {
+        level: "zor",
+        question: "Çocukta sepsis'te hangi laktat düzeyi kötü prognoz göstergesidir?",
+        options: [">2 mmol/L", ">4 mmol/L", ">6 mmol/L", ">8 mmol/L"],
+        correct: 1,
+        explanation: "Çocukta laktat >4 mmol/L kötü prognoz göstergesidir."
+    },
+    {
+        level: "zor",
+        question: "Hiponatremi düzeltmesinde hipertonik salin konsantrasyonu nedir?",
+        options: ["%1.5", "%3", "%5", "%10"],
+        correct: 1,
+        explanation: "Hiponatremi düzeltmesinde %3 hipertonik salin kullanılır."
+    },
+    {
+        level: "zor",
+        question: "Çocukta diabetik ketoasidoz'da insülin dozu nedir?",
+        options: ["0.05 Ü/kg/saat", "0.1 Ü/kg/saat", "0.15 Ü/kg/saat", "0.2 Ü/kg/saat"],
+        correct: 1,
+        explanation: "DKA'da insülin dozu 0.1 Ü/kg/saat'tir."
+    },
+    {
+        level: "zor",
+        question: "Malign hipertermi tedavisinde soğutma hedefi nedir?",
+        options: ["<37°C", "<38°C", "<39°C", "<40°C"],
+        correct: 1,
+        explanation: "Malign hipertermide soğutma hedefi <38°C'dir."
+    },
+    {
+        level: "zor",
+        question: "Organofosfor zehirlenmesinde pralidoksim maksimum dozu nedir?",
+        options: ["1 g", "2 g", "3 g", "4 g"],
+        correct: 1,
+        explanation: "Pralidoksim maksimum dozu 2 g'dır."
+    },
+    {
+        level: "zor",
+        question: "Hiperosmolar hiperglisemik durumda mortalite oranı nedir?",
+        options: ["%5-15", "%15-25", "%25-35", "%35-45"],
+        correct: 0,
+        explanation: "HHS mortalite oranı %5-15'tir."
+    }
+];
+
+// Quiz Game State
+let quizState = {
+    currentQuestion: 0,
+    score: 0,
+    timeLeft: 60,
+    gameActive: false,
+    timer: null,
+    questions: [],
+    startTime: null,
+    level: 'kolay'
+};
+
+// Algoritma verileri
 const algorithmData = {
-   yetiskin: {
+    yetiskin: {
     aks: { category: "cardiac", title: "🫀 Akut Koroner Sendrom (AKS)", 
 ekgList: [
         { isim: "Derivasyonlar ve Komşu Yüzeyler", link: "img/ekg1.jpg" }, // Yeni eklediğimiz
@@ -525,27 +1626,36 @@ function escapeHtml(str) {
   return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 
-function searchAlgo() {
-  const q = document.getElementById("searchInput") ? document.getElementById("searchInput").value.trim().toLowerCase() : '';
-  document.querySelectorAll("button[onclick*='showAlgo']").forEach(btn => {
-    const text = (btn.textContent || btn.innerText || '').toLowerCase();
-    const match = !q || text.includes(q);
-    btn.style.display = match ? 'inline-block' : 'none';
-  });
-}
+// Eski searchAlgo fonksiyonu gelişmiş versiyonla değiştirildi - aşağıda
 
 function showAlgo(key, grupName) {
   try {
+    // Sayfa değiştiğinde tüm sesleri durdur
+    stopAllSounds();
+    
     const grupKey = (grupName && grupName.toLowerCase().startsWith('y')) ? 'yetiskin' : 'cocuk';
     const algo = (algorithmData[grupKey] || {})[key.toLowerCase().trim()];
     const contentEl = document.getElementById("content");
-    if (!contentEl || !algo) return;
+    if (!contentEl) {
+      console.error('İçerik elementi bulunamadı');
+      return;
+    }
+    if (!algo) {
+      console.warn(`Algoritma bulunamadı: ${key} (${grupKey})`);
+      contentEl.innerHTML = '<div style="padding:20px; text-align:center; color:#dc2626;"><p>Algoritma bulunamadı. Lütfen ana menüye dönün.</p><button class="back-btn" onclick="clearContent()">⬅️ Geri Dön</button></div>';
+      contentEl.style.display = "block";
+      return;
+    }
 
 let html = `
     <button class="back-btn" onclick="clearContent()">⬅️ Geri Dön</button>
     
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; gap: 10px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; gap: 10px; flex-wrap: wrap;">
         <h2 style="color:#b91c1c; margin: 0; font-size: 1.1rem; line-height: 1.2;">${escapeHtml(algo.title)}</h2>
+        
+        <button id="fav-${key}-${grupName}" class="btn-favorite" onclick="toggleFavorite('${key}', '${grupName}'); updateFavoriteButton('${key}', '${grupName}');" style="margin-left: auto;">
+            ${isFavorite(key, grupName) ? '⭐ Favorilerden Çıkar' : '⭐ Favorilere Ekle'}
+        </button>
         
         <div style="display: flex; flex-direction: column; gap: 6px; flex-shrink: 0;">
             ${algo.ekgList ? `
@@ -564,11 +1674,12 @@ let html = `
     </div>`;
    // Ses Paneli (Astım, KOAH veya Anafilaksi)
     const currentKey = key.toLowerCase().trim();
+    
     const sesVerileri = {
     'astim': 'wheezing (Hırıltı)',
     'koah': 'Ronküs (Kaba Ses)',
     'anafilaksi': 'Stridor (Üst Havayolu Daralması)',
-    'krup': 'krup (Pediyatrik Ses)' // Bunu ekle
+    'krup': 'Krup Sesi (Havlar Tarzda Öksürük)'
 };
 
     if (sesVerileri[currentKey]) {
@@ -644,7 +1755,7 @@ let html = `
     });
     if (algo.image) {
       html += `<div class="algo-image" style="margin-top:20px; text-align:center;">
-                <img src="${algo.image}" alt="${algo.title}" style="max-width:100%; height:auto; border-radius:8px; border: 2px solid #ddd;">
+                <img src="${algo.image}" alt="${escapeHtml(algo.title)}" loading="lazy" style="max-width:100%; height:auto; border-radius:8px; border: 2px solid #ddd;" onerror="this.style.display='none'; console.error('Görsel yüklenemedi:', '${algo.image}');">
                </div>`;
     }
 
@@ -652,7 +1763,17 @@ let html = `
     contentEl.innerHTML = html;
     contentEl.style.display = "block";
     contentEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  } catch (e) { console.error(e); }
+    
+    // Favori butonunu güncelle
+    updateFavoriteButton(key, grupName);
+  } catch (e) { 
+    console.error('showAlgo hatası:', e);
+    const contentEl = document.getElementById("content");
+    if (contentEl) {
+      contentEl.innerHTML = '<div style="padding:20px; text-align:center; color:#dc2626;"><p>Bir hata oluştu. Lütfen sayfayı yenileyin.</p><button class="back-btn" onclick="clearContent()">⬅️ Geri Dön</button></div>';
+      contentEl.style.display = "block";
+    }
+  }
 }
 function tahminiKiloHesapla() {
   const tip = document.getElementById("yasTipi").value;
@@ -687,49 +1808,56 @@ function hesaplaCocukDoz() {
   const res = document.getElementById("dozSonuc");
   if (!kg || kg <= 0) { res.innerHTML = ""; return; }
 
-  let h = `<div style="text-align:left; margin-top:15px; display:flex; flex-direction:column; gap:15px;">`;
+  // Tema kontrolü - gece modunda çok daha kontrastlı renkler
+  const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+  const textColor = isDarkMode ? '#f8fafc' : '#1f2937';        // Çok açık gri (gece modunda)
+  const boxBg = isDarkMode ? '#0f172a' : '#f3f4f6';            // Çok koyu mavi (gece modunda)
+  const titleColor = isDarkMode ? '#fbbf24' : '#b91c1c';       // Parlak sarı (gece modunda)
+  const borderColor = isDarkMode ? '#475569' : '#d1d5db';      // Orta gri (gece modunda)
+
+  let h = `<div style="text-align:left; margin-top:15px; display:flex; flex-direction:column; gap:15px; color: ${textColor} !important;">`;
 
   // 1. Resüsitasyon (Arrest)
-  h += `<div class="decision-box">
-          <b class="decision-title">🚨 Resüsitasyon (Arrest)</b>
-          • <b>Adrenalin (1:10.000):</b> ${(kg * 0.1).toFixed(1)} ml IV/IO <small>(0.01 mg/kg)</small><br>
-          • <b>Amiodaron:</b> ${(kg * 5).toFixed(1)} mg <small>(5 mg/kg Bolus)</small><br>
-          • <b>Magnezyum Sülfat:</b> ${Math.min(kg * 50, 2000).toFixed(0)} mg <small>(25-50 mg/kg, Max 2g)</small>
+  h += `<div class="decision-box" style="background: ${boxBg} !important; color: ${textColor} !important; padding: 15px; border-radius: 12px; border: 2px solid ${borderColor};">
+          <b class="decision-title" style="color: ${titleColor} !important; font-size: 16px; display: block; margin-bottom: 8px;">🚨 Resüsitasyon (Arrest)</b>
+          • <b style="color: ${textColor} !important;">Adrenalin (1:10.000):</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 0.1).toFixed(1)} ml IV/IO</span> <small style="color: ${textColor} !important;">(0.01 mg/kg)</small><br>
+          • <b style="color: ${textColor} !important;">Amiodaron:</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 5).toFixed(1)} mg</span> <small style="color: ${textColor} !important;">(5 mg/kg Bolus)</small><br>
+          • <b style="color: ${textColor} !important;">Magnezyum Sülfat:</b> <span style="color: ${textColor} !important; font-weight: bold;">${Math.min(kg * 50, 2000).toFixed(0)} mg</span> <small style="color: ${textColor} !important;">(25-50 mg/kg, Max 2g)</small>
         </div>`;
 
   // 2. Nöbet Kontrolü
-  h += `<div class="decision-box">
-          <b class="decision-title">🧠 Nöbet Kontrolü</b>
-          • <b>Midazolam (IV/IO):</b> ${(kg * 0.1).toFixed(2)} mg <small>(0.1 mg/kg)</small><br>
-          • <b>Midazolam (IM/Bukkal/Nazal):</b> ${(kg * 0.2).toFixed(2)} mg <small>(0.2 mg/kg)</small><br>
-          • <b>Diazepam (IV):</b> ${(kg * 0.2).toFixed(2)} mg | <b>Rektal:</b> ${(kg * 0.5).toFixed(2)} mg<br>
-          • <b>Fenitoin:</b> ${(kg * 20).toFixed(0)} mg <small>(SF içinde, 20 dk infüzyon)</small>
+  h += `<div class="decision-box" style="background: ${boxBg} !important; color: ${textColor} !important; padding: 15px; border-radius: 12px; border: 2px solid ${borderColor};">
+          <b class="decision-title" style="color: ${titleColor} !important; font-size: 16px; display: block; margin-bottom: 8px;">🧠 Nöbet Kontrolü</b>
+          • <b style="color: ${textColor} !important;">Midazolam (IV/IO):</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 0.1).toFixed(2)} mg</span> <small style="color: ${textColor} !important;">(0.1 mg/kg)</small><br>
+          • <b style="color: ${textColor} !important;">Midazolam (IM/Bukkal/Nazal):</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 0.2).toFixed(2)} mg</span> <small style="color: ${textColor} !important;">(0.2 mg/kg)</small><br>
+          • <b style="color: ${textColor} !important;">Diazepam (IV):</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 0.2).toFixed(2)} mg</span> | <b style="color: ${textColor} !important;">Rektal:</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 0.5).toFixed(2)} mg</span><br>
+          • <b style="color: ${textColor} !important;">Fenitoin:</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 20).toFixed(0)} mg</span> <small style="color: ${textColor} !important;">(SF içinde, 20 dk infüzyon)</small>
         </div>`;
 
   // 3. Solunum ve Anafilaksi
   const salbutamol = kg < 20 ? "2.5 mg" : "5 mg";
   const adrAnafilaksi = Math.min(kg * 0.01, 0.3).toFixed(2);
-  h += `<div class="decision-box">
-          <b class="decision-title">🫁 Solunum ve Anafilaksi</b>
-          • <b>Salbutamol Nebül:</b> ${salbutamol}<br>
-          • <b>Adrenalin IM (1:1000):</b> ${adrAnafilaksi} mg <small>(0.01 mg/kg, Max 0.3 mg)</small><br>
-          • <b>Metilprednizolon:</b> ${(kg * 1).toFixed(1)}-${(kg * 2).toFixed(1)} mg <small>(1-2 mg/kg)</small>
+  h += `<div class="decision-box" style="background: ${boxBg} !important; color: ${textColor} !important; padding: 15px; border-radius: 12px; border: 2px solid ${borderColor};">
+          <b class="decision-title" style="color: ${titleColor} !important; font-size: 16px; display: block; margin-bottom: 8px;">🫁 Solunum ve Anafilaksi</b>
+          • <b style="color: ${textColor} !important;">Salbutamol Nebül:</b> <span style="color: ${textColor} !important; font-weight: bold;">${salbutamol}</span><br>
+          • <b style="color: ${textColor} !important;">Adrenalin IM (1:1000):</b> <span style="color: ${textColor} !important; font-weight: bold;">${adrAnafilaksi} mg</span> <small style="color: ${textColor} !important;">(0.01 mg/kg, Max 0.3 mg)</small><br>
+          • <b style="color: ${textColor} !important;">Metilprednizolon:</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 1).toFixed(1)}-${(kg * 2).toFixed(1)} mg</span> <small style="color: ${textColor} !important;">(1-2 mg/kg)</small>
         </div>`;
 
   // 4. Şok ve Sıvı
-  h += `<div class="decision-box">
-          <b class="decision-title">💧 Sıvı ve Hipoglisemi</b>
-          • <b>İzotonik (Normal Şok):</b> ${(kg * 20).toFixed(0)} ml <small>(Hızlı bolus)</small><br>
-          • <b>İzotonik (Kardiyojenik):</b> ${(kg * 5).toFixed(0)}-${(kg * 10).toFixed(0)} ml <small>(Yavaş)</small><br>
-          • <b>%10 Dekstroz:</b> ${(kg * 5).toFixed(0)} ml <small>(Yeni Doğan için 2 ml/kg)</small>
+  h += `<div class="decision-box" style="background: ${boxBg} !important; color: ${textColor} !important; padding: 15px; border-radius: 12px; border: 2px solid ${borderColor};">
+          <b class="decision-title" style="color: ${titleColor} !important; font-size: 16px; display: block; margin-bottom: 8px;">💧 Sıvı ve Hipoglisemi</b>
+          • <b style="color: ${textColor} !important;">İzotonik (Normal Şok):</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 20).toFixed(0)} ml</span> <small style="color: ${textColor} !important;">(Hızlı bolus)</small><br>
+          • <b style="color: ${textColor} !important;">İzotonik (Kardiyojenik):</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 5).toFixed(0)}-${(kg * 10).toFixed(0)} ml</span> <small style="color: ${textColor} !important;">(Yavaş)</small><br>
+          • <b style="color: ${textColor} !important;">%10 Dekstroz:</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 5).toFixed(0)} ml</span> <small style="color: ${textColor} !important;">(Yeni Doğan için 2 ml/kg)</small>
         </div>`;
 
   // 5. Analjezi ve Sedasyon
-  h += `<div class="decision-box">
-          <b class="decision-title">💊 Analjezi ve Sedasyon</b>
-          • <b>Parasetamol:</b> ${(kg * 15).toFixed(0)} mg <small>(15 mg/kg)</small><br>
-          • <b>Fentanil:</b> ${(kg * 1).toFixed(1)} mcg <small>(1 mcg/kg)</small><br>
-          • <b>Ketamin:</b> ${(kg * 1).toFixed(1)}-${(kg * 2).toFixed(1)} mg <small>(1-2 mg/kg)</small>
+  h += `<div class="decision-box" style="background: ${boxBg} !important; color: ${textColor} !important; padding: 15px; border-radius: 12px; border: 2px solid ${borderColor};">
+          <b class="decision-title" style="color: ${titleColor} !important; font-size: 16px; display: block; margin-bottom: 8px;">💊 Analjezi ve Sedasyon</b>
+          • <b style="color: ${textColor} !important;">Parasetamol:</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 15).toFixed(0)} mg</span> <small style="color: ${textColor} !important;">(15 mg/kg)</small><br>
+          • <b style="color: ${textColor} !important;">Fentanil:</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 1).toFixed(1)} mcg</span> <small style="color: ${textColor} !important;">(1 mcg/kg)</small><br>
+          • <b style="color: ${textColor} !important;">Ketamin:</b> <span style="color: ${textColor} !important; font-weight: bold;">${(kg * 1).toFixed(1)}-${(kg * 2).toFixed(1)} mg</span> <small style="color: ${textColor} !important;">(1-2 mg/kg)</small>
         </div>`;
 
   h += `</div>`;
@@ -755,11 +1883,17 @@ function clearContent() {
     c.innerHTML = ''; 
   }
   
+  // Favoriler bölümünü göster
+  renderFavorites();
+  
   // Sayfayı en üste kaydırır
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function showGroup(g) {
+  // Sayfa değiştiğinde tüm sesleri durdur
+  stopAllSounds();
+  
   // Tüm ana bölümleri gizle
   document.getElementById("yetiskin").style.display = "none";
   document.getElementById("cocuk").style.display = "none";
@@ -937,12 +2071,21 @@ const stridorSound = new Audio('sound/stridor.mp3');
 const krupSound = new Audio('sound/krup.mp3');
 
 function playSound(type) {
+    console.log("🔊 Ses çalınıyor:", type);
     stopAllSounds();
-    if(type === 'astim') wheezingSound.play().catch(e => console.log("Astım sesi hatası:", e));
-    if(type === 'koah') ronkusSound.play().catch(e => console.log("KOAH sesi hatası:", e));
-    if(type === 'anafilaksi') stridorSound.play().catch(e => console.log("Stridor sesi hatası:", e));
-    if(type === 'krup') krupSound.play().catch(e => console.log("Krup sesi hatası:", e));
-
+    
+    if(type === 'astim') {
+        wheezingSound.play().catch(e => console.log("Astım sesi hatası:", e));
+    }
+    if(type === 'koah') {
+        ronkusSound.play().catch(e => console.log("KOAH sesi hatası:", e));
+    }
+    if(type === 'anafilaksi') {
+        stridorSound.play().catch(e => console.log("Stridor sesi hatası:", e));
+    }
+    if(type === 'krup') {
+        krupSound.play().catch(e => console.log("Krup sesi hatası:", e));
+    }
 }
 
 function stopAllSounds() {
@@ -952,38 +2095,50 @@ function stopAllSounds() {
     });
 }
 
+// Manuel splash screen kapatma fonksiyonu
+function closeSplashScreen() {
+    console.log('👆 Kullanıcı splash screen\'e tıkladı');
+    const splash = document.getElementById('splash-screen');
+    if (splash) {
+        splash.style.opacity = '0';
+        splash.style.transform = 'scale(1.05)';
+        setTimeout(() => {
+            splash.style.display = 'none';
+            console.log('✅ Splash screen manuel olarak kapatıldı!');
+        }, 300);
+    }
+}
+
 // Sayfa yüklendiğinde Splash Screen'i yönet
 window.addEventListener('load', () => {
-    const splash = document.getElementById('splash-screen');
-    const bar = document.getElementById('loading-bar');
-    
-    // Önce yükleme çubuğunu doldur
-    setTimeout(() => {
-        bar.style.width = '100%';
-    }, 100);
-
-    // 2 saniye sonra ekranı kaldır
-    setTimeout(() => {
-        splash.style.opacity = '0';
-        setTimeout(() => {
-            splash.style.display = 'none';
-        }, 500);
-    }, 2000);
-});
-
-// Splash Screen Yönetimi
-window.addEventListener('load', () => {
+    console.log('🚀 Sayfa yüklendi, splash screen kapatılıyor...');
     const splash = document.getElementById('splash-screen');
     
-    // Uygulama tamamen hazır olduktan 2.5 saniye sonra kapat
-    setTimeout(() => {
-        splash.style.opacity = '0';
-        splash.style.transform = 'scale(1.1)'; // Hafif büyüme efektiyle çıkış
+    if (splash) {
+        console.log('✅ Splash screen bulundu, kapatma işlemi başlıyor...');
+        // 1.5 saniye sonra ekranı kaldır (daha hızlı)
         setTimeout(() => {
-            splash.style.display = 'none';
-        }, 800);
-    }, 2500);
+            console.log('⏰ Splash screen kapatılıyor...');
+            splash.style.opacity = '0';
+            splash.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                splash.style.display = 'none';
+                console.log('✅ Splash screen kapatıldı!');
+            }, 500);
+        }, 1500);
+    } else {
+        console.error('❌ Splash screen elementi bulunamadı!');
+    }
 });
+
+// Acil durum: 5 saniye sonra zorla kapat
+setTimeout(() => {
+    const splash = document.getElementById('splash-screen');
+    if (splash && splash.style.display !== 'none') {
+        console.log('🚨 Acil durum: Splash screen zorla kapatılıyor...');
+        splash.style.display = 'none';
+    }
+}, 5000);
 
 // --- SERVICE WORKER KAYDI (PWA İÇİN ŞART) ---
 if ('serviceWorker' in navigator) {
@@ -996,6 +2151,412 @@ if ('serviceWorker' in navigator) {
                 console.log('Servis İşçisi kaydı başarısız:', error);
             });
     });
+}
+
+// --- LANDSCAPE MODE SUPPORT ---
+function handleOrientationChange() {
+    // Orientation değişikliğinde layout'u optimize et
+    const isLandscape = window.innerWidth > window.innerHeight;
+    const body = document.body;
+    
+    if (isLandscape) {
+        body.classList.add('landscape-mode');
+        console.log('📱 Landscape mode aktif');
+        
+        // İlk kez landscape'e geçtiğinde bilgi göster
+        if (!localStorage.getItem('landscape-tip-shown')) {
+            setTimeout(() => {
+                const tip = document.createElement('div');
+                tip.style = `
+                    position: fixed;
+                    top: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(37, 99, 235, 0.95);
+                    color: white;
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    font-size: 12px;
+                    z-index: 1000;
+                    animation: fadeInOut 3s ease-in-out;
+                `;
+                tip.textContent = '📱 Yatay ekran modu aktif - Daha geniş görünüm!';
+                document.body.appendChild(tip);
+                
+                setTimeout(() => tip.remove(), 3000);
+                localStorage.setItem('landscape-tip-shown', 'true');
+            }, 500);
+        }
+    } else {
+        body.classList.remove('landscape-mode');
+        console.log('📱 Portrait mode aktif');
+    }
+    
+    // Grid layout'u yeniden hesapla
+    setTimeout(() => {
+        const grids = document.querySelectorAll('.grid');
+        grids.forEach(grid => {
+            // Force reflow to apply new CSS
+            grid.style.display = 'none';
+            grid.offsetHeight; // Trigger reflow
+            grid.style.display = 'grid';
+        });
+    }, 100);
+}
+
+// Orientation change event listeners
+window.addEventListener('orientationchange', () => {
+    setTimeout(handleOrientationChange, 100); // iOS için delay
+});
+
+window.addEventListener('resize', handleOrientationChange);
+
+// Sayfa yüklendiğinde initial orientation check
+window.addEventListener('load', handleOrientationChange);
+
+// --- QUIZ GAME FUNCTIONS ---
+function showQuizGame() {
+    // Sayfa değiştiğinde tüm sesleri durdur
+    stopAllSounds();
+    
+    // Ana sayfadaki grid butonlarını gizle
+    const gridEl = document.querySelector('.grid');
+    if(gridEl) gridEl.style.display = 'none';
+
+    const contentEl = document.getElementById("content");
+    contentEl.innerHTML = `
+        <button class="back-btn" onclick="clearContent()">⬅️ Ana Menü</button>
+        
+        <div style="text-align: center; margin-bottom: 20px;">
+            <h2 style="color: #f59e0b; margin: 0; font-size: 1.4rem;">🎮 112 Quiz Challenge</h2>
+            <p style="color: #6b7280; margin: 5px 0;">60 saniyede en fazla soruyu çöz!</p>
+        </div>
+
+        <div id="quizMenu" style="display: block;">
+            <div style="background: #fff; padding: 20px; border-radius: 16px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <h3 style="margin-top: 0; color: #1f2937;">🎯 Zorluk Seviyesi Seç</h3>
+                <div style="display: grid; gap: 10px;">
+                    <button onclick="startQuiz('kolay')" style="background: linear-gradient(135deg, #10b981, #059669); padding: 12px; border-radius: 12px; color: white; border: none; font-size: 16px;">
+                        🟢 Kolay - Temel bilgiler
+                    </button>
+                    <button onclick="startQuiz('orta')" style="background: linear-gradient(135deg, #f59e0b, #d97706); padding: 12px; border-radius: 12px; color: white; border: none; font-size: 16px;">
+                        🟡 Orta - Detaylı bilgiler  
+                    </button>
+                    <button onclick="startQuiz('zor')" style="background: linear-gradient(135deg, #ef4444, #dc2626); padding: 12px; border-radius: 12px; color: white; border: none; font-size: 16px;">
+                        🔴 Zor - Uzman seviyesi
+                    </button>
+                    <button onclick="startQuiz('karisik')" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); padding: 12px; border-radius: 12px; color: white; border: none; font-size: 16px;">
+                        🌈 Karışık - Tüm seviyeler
+                    </button>
+                </div>
+            </div>
+            
+            <div style="background: #f8fafc; padding: 16px; border-radius: 12px; margin-bottom: 20px;">
+                <h4 style="margin-top: 0; color: #374151;">📊 En İyi Skorların</h4>
+                <div id="leaderboard"></div>
+            </div>
+            
+            <div style="background: #fef3c7; padding: 16px; border-radius: 12px; border-left: 4px solid #f59e0b;">
+                <h4 style="margin-top: 0; color: #92400e;">ℹ️ Nasıl Oynanır?</h4>
+                <ul style="margin: 0; padding-left: 20px; color: #92400e;">
+                    <li>60 saniye süren var</li>
+                    <li>Doğru cevap = +10 puan</li>
+                    <li>Yanlış cevap = -5 puan</li>
+                    <li>Hızlı cevap = bonus puan</li>
+                    <li>En yüksek skoru hedefle!</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="quizGame" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: #1f2937; color: white; padding: 15px; border-radius: 12px;">
+                <div>
+                    <span style="font-size: 18px; font-weight: bold;">⏱️ <span id="timeDisplay">60</span>s</span>
+                </div>
+                <div>
+                    <span style="font-size: 18px; font-weight: bold;">🏆 <span id="scoreDisplay">0</span> puan</span>
+                </div>
+                <div>
+                    <span style="font-size: 16px;">📝 <span id="questionCounter">1/∞</span></span>
+                </div>
+            </div>
+            
+            <div id="questionContainer" style="background: white; padding: 20px; border-radius: 16px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <div id="questionText" style="font-size: 18px; font-weight: 600; color: #1f2937; margin-bottom: 20px; line-height: 1.4;"></div>
+                <div id="optionsContainer" style="display: grid; gap: 10px;"></div>
+            </div>
+            
+            <div id="feedbackContainer" style="display: none; padding: 15px; border-radius: 12px; margin-bottom: 15px;"></div>
+        </div>
+
+        <div id="quizResults" style="display: none;">
+            <div style="text-align: center; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
+                <div id="resultIcon" style="font-size: 4rem; margin-bottom: 15px;"></div>
+                <h3 id="resultTitle" style="color: #1f2937; margin-bottom: 10px;"></h3>
+                <div id="resultStats" style="color: #6b7280; margin-bottom: 20px;"></div>
+                <div style="display: grid; gap: 10px; max-width: 300px; margin: 0 auto;">
+                    <button onclick="showQuizGame()" style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 12px; border-radius: 12px; border: none; font-size: 16px;">
+                        🔄 Tekrar Oyna
+                    </button>
+                    <button onclick="clearContent()" style="background: #6b7280; color: white; padding: 12px; border-radius: 12px; border: none; font-size: 16px;">
+                        🏠 Ana Menü
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    contentEl.style.display = "block";
+    loadLeaderboard();
+}
+
+function startQuiz(level) {
+    quizState.level = level;
+    quizState.currentQuestion = 0;
+    quizState.score = 0;
+    quizState.timeLeft = 60;
+    quizState.gameActive = true;
+    quizState.startTime = Date.now();
+    
+    // Soruları seviyeye göre filtrele
+    if (level === 'karisik') {
+        quizState.questions = [...quizQuestions].sort(() => Math.random() - 0.5);
+    } else {
+        quizState.questions = quizQuestions.filter(q => q.level === level).sort(() => Math.random() - 0.5);
+    }
+    
+    document.getElementById('quizMenu').style.display = 'none';
+    document.getElementById('quizGame').style.display = 'block';
+    
+    startTimer();
+    showQuestion();
+}
+
+function startTimer() {
+    quizState.timer = setInterval(() => {
+        quizState.timeLeft--;
+        document.getElementById('timeDisplay').textContent = quizState.timeLeft;
+        
+        // Son 10 saniyede kırmızı yap
+        const timeDisplay = document.getElementById('timeDisplay');
+        if (quizState.timeLeft <= 10) {
+            timeDisplay.style.color = '#ef4444';
+            timeDisplay.style.animation = 'pulse 1s infinite';
+        }
+        
+        if (quizState.timeLeft <= 0) {
+            endQuiz();
+        }
+    }, 1000);
+}
+
+function showQuestion() {
+    if (quizState.currentQuestion >= quizState.questions.length) {
+        // Soruları bitirdiyse karıştır ve devam et
+        quizState.questions = [...quizState.questions].sort(() => Math.random() - 0.5);
+        quizState.currentQuestion = 0;
+    }
+    
+    const question = quizState.questions[quizState.currentQuestion];
+    document.getElementById('questionText').textContent = question.question;
+    document.getElementById('questionCounter').textContent = `${quizState.currentQuestion + 1}. Soru`;
+    
+    const optionsContainer = document.getElementById('optionsContainer');
+    optionsContainer.innerHTML = '';
+    
+    question.options.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.textContent = option;
+        button.style = `
+            padding: 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            background: white;
+            color: #1f2937;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        `;
+        button.onmouseover = () => {
+            button.style.borderColor = '#3b82f6';
+            button.style.background = '#eff6ff';
+        };
+        button.onmouseout = () => {
+            button.style.borderColor = '#e5e7eb';
+            button.style.background = 'white';
+        };
+        button.onclick = () => selectAnswer(index);
+        optionsContainer.appendChild(button);
+    });
+    
+    // Feedback container'ı gizle
+    document.getElementById('feedbackContainer').style.display = 'none';
+}
+
+function selectAnswer(selectedIndex) {
+    if (!quizState.gameActive) return;
+    
+    const question = quizState.questions[quizState.currentQuestion];
+    const isCorrect = selectedIndex === question.correct;
+    const timeBonus = Math.max(0, Math.floor((60 - (60 - quizState.timeLeft)) / 10)); // Hızlı cevap bonusu
+    
+    // Puanlama
+    if (isCorrect) {
+        quizState.score += 10 + timeBonus;
+    } else {
+        quizState.score = Math.max(0, quizState.score - 5);
+    }
+    
+    // Feedback göster
+    showFeedback(isCorrect, question.explanation, timeBonus);
+    
+    // Skor güncelle
+    document.getElementById('scoreDisplay').textContent = quizState.score;
+    
+    // Sonraki soruya geç
+    setTimeout(() => {
+        quizState.currentQuestion++;
+        showQuestion();
+    }, 2000);
+}
+
+function showFeedback(isCorrect, explanation, timeBonus) {
+    const feedbackContainer = document.getElementById('feedbackContainer');
+    const bgColor = isCorrect ? '#dcfce7' : '#fee2e2';
+    const textColor = isCorrect ? '#166534' : '#991b1b';
+    const icon = isCorrect ? '✅' : '❌';
+    
+    let bonusText = '';
+    if (isCorrect && timeBonus > 0) {
+        bonusText = ` (+${timeBonus} hız bonusu!)`;
+    }
+    
+    feedbackContainer.innerHTML = `
+        <div style="display: flex; align-items: flex-start; gap: 10px;">
+            <span style="font-size: 24px;">${icon}</span>
+            <div>
+                <div style="font-weight: bold; color: ${textColor}; margin-bottom: 5px;">
+                    ${isCorrect ? 'Doğru!' : 'Yanlış!'} ${bonusText}
+                </div>
+                <div style="color: ${textColor}; font-size: 14px;">
+                    ${explanation}
+                </div>
+            </div>
+        </div>
+    `;
+    feedbackContainer.style.background = bgColor;
+    feedbackContainer.style.display = 'block';
+}
+
+function endQuiz() {
+    quizState.gameActive = false;
+    clearInterval(quizState.timer);
+    
+    // Skoru kaydet
+    saveScore(quizState.level, quizState.score);
+    
+    // Sonuçları göster
+    showResults();
+}
+
+function showResults() {
+    document.getElementById('quizGame').style.display = 'none';
+    document.getElementById('quizResults').style.display = 'block';
+    
+    const totalTime = Math.floor((Date.now() - quizState.startTime) / 1000);
+    const questionsAnswered = quizState.currentQuestion;
+    
+    // Performans değerlendirmesi
+    let resultIcon, resultTitle, resultMessage;
+    if (quizState.score >= 100) {
+        resultIcon = '🏆';
+        resultTitle = 'Mükemmel!';
+        resultMessage = 'Harika bir performans sergileddin!';
+    } else if (quizState.score >= 70) {
+        resultIcon = '🥇';
+        resultTitle = 'Çok İyi!';
+        resultMessage = 'Güzel bir skor elde ettin!';
+    } else if (quizState.score >= 40) {
+        resultIcon = '🥈';
+        resultTitle = 'İyi!';
+        resultMessage = 'Fena değil, biraz daha çalışabilirsin!';
+    } else {
+        resultIcon = '🥉';
+        resultTitle = 'Başlangıç';
+        resultMessage = 'Pratik yapmaya devam et!';
+    }
+    
+    document.getElementById('resultIcon').textContent = resultIcon;
+    document.getElementById('resultTitle').textContent = resultTitle;
+    document.getElementById('resultStats').innerHTML = `
+        <div style="font-size: 18px; font-weight: bold; color: #f59e0b; margin-bottom: 10px;">
+            ${quizState.score} Puan
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left;">
+            <div>📝 Soru: ${questionsAnswered}</div>
+            <div>⏱️ Süre: ${totalTime}s</div>
+            <div>🎯 Seviye: ${quizState.level}</div>
+            <div>📊 Ortalama: ${questionsAnswered > 0 ? Math.round(quizState.score / questionsAnswered) : 0}/soru</div>
+        </div>
+        <div style="margin-top: 15px; font-size: 14px;">
+            ${resultMessage}
+        </div>
+    `;
+}
+
+function saveScore(level, score) {
+    const scores = JSON.parse(localStorage.getItem('quiz-scores') || '{}');
+    if (!scores[level]) scores[level] = [];
+    
+    scores[level].push({
+        score: score,
+        date: new Date().toLocaleDateString('tr-TR'),
+        timestamp: Date.now()
+    });
+    
+    // En iyi 5 skoru tut
+    scores[level] = scores[level]
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 5);
+    
+    localStorage.setItem('quiz-scores', JSON.stringify(scores));
+}
+
+function loadLeaderboard() {
+    const scores = JSON.parse(localStorage.getItem('quiz-scores') || '{}');
+    const leaderboard = document.getElementById('leaderboard');
+    
+    if (Object.keys(scores).length === 0) {
+        leaderboard.innerHTML = '<p style="color: #6b7280; font-style: italic;">Henüz skor yok. İlk oyunu sen oyna!</p>';
+        return;
+    }
+    
+    let html = '';
+    ['kolay', 'orta', 'zor', 'karisik'].forEach(level => {
+        if (scores[level] && scores[level].length > 0) {
+            const levelNames = {
+                'kolay': '🟢 Kolay',
+                'orta': '🟡 Orta', 
+                'zor': '🔴 Zor',
+                'karisik': '🌈 Karışık'
+            };
+            
+            html += `<div style="margin-bottom: 15px;">
+                <h5 style="margin: 0 0 8px 0; color: #374151;">${levelNames[level]}</h5>`;
+            
+            scores[level].slice(0, 3).forEach((score, index) => {
+                const medals = ['🥇', '🥈', '🥉'];
+                html += `<div style="display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #f3f4f6;">
+                    <span>${medals[index]} ${score.score} puan</span>
+                    <span style="color: #6b7280; font-size: 12px;">${score.date}</span>
+                </div>`;
+            });
+            
+            html += '</div>';
+        }
+    });
+    
+    leaderboard.innerHTML = html || '<p style="color: #6b7280; font-style: italic;">Henüz skor yok.</p>';
 }
 function filterYetiskin(category, titleText) {
     // Başlığı değiştir
@@ -1018,6 +2579,9 @@ function filterYetiskin(category, titleText) {
 }
 
 function resetYetiskinView() {
+    // Sayfa değiştiğinde tüm sesleri durdur
+    stopAllSounds();
+    
     // Görünümü başa döndür
     document.getElementById('yetiskinTitle').textContent = 'Yetişkin Ön Tanılar';
     document.getElementById('yetiskinCategoryMenu').style.display = 'grid';
@@ -1037,8 +2601,8 @@ function openEkgGallery(liste) {
     liste.forEach(ekg => {
         galeriHtml += `
             <div style="width:100%; max-width:500px; margin-bottom:40px; text-align:center;">
-                <p style="color:#fca5a5; font-weight:bold; margin-bottom:8px; font-size:16px;">${ekg.isim}</p>
-                <img src="${ekg.link}" style="width:100%; border-radius:12px; border:2px solid #333; box-shadow: 0 4px 15px rgba(0,0,0,0.5);" alt="${ekg.isim}">
+                <p style="color:#fca5a5; font-weight:bold; margin-bottom:8px; font-size:16px;">${escapeHtml(ekg.isim)}</p>
+                <img src="${ekg.link}" loading="lazy" style="width:100%; border-radius:12px; border:2px solid #333; box-shadow: 0 4px 15px rgba(0,0,0,0.5);" alt="${escapeHtml(ekg.isim)}" onerror="this.parentElement.innerHTML='<p style=\\'color:#fca5a5;\\'>Görsel yüklenemedi</p>';">
             </div>
         `;
     });
@@ -1052,33 +2616,82 @@ function openEkgGallery(liste) {
     modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
 }
 
+// Video yükleme göstergeleri
+function showVideoLoader() {
+    const loader = document.getElementById('videoLoader');
+    if (loader) loader.style.display = 'block';
+}
+
+function hideVideoLoader() {
+    const loader = document.getElementById('videoLoader');
+    if (loader) loader.style.display = 'none';
+}
+
 function openVideoPlayer(videoUrl, videoBaslik) {
-    const modal = document.createElement('div');
-    modal.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.98); z-index:10000; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:15px;";
-    
-    modal.innerHTML = `
-        <div style="width:100%; max-width:500px; position:relative;">
-            <h3 style="color:white; text-align:center; margin-bottom:15px; font-family:sans-serif;">${videoBaslik}</h3>
-            
-            <video controls autoplay style="width:100%; border-radius:12px; border:1px solid #444; background:#000;">
-                <source src="${videoUrl}" type="video/mp4">
-                Tarayıcınız video oynatmayı desteklemiyor.
-            </video>
-            
-            <div style="margin-top:20px; text-align:center;">
-                <button onclick="this.parentElement.parentElement.parentElement.remove()" 
-                        style="padding:12px 40px; background:#fff; color:#000; border:none; border-radius:25px; font-weight:bold; cursor:pointer;">
-                    Kapat
-                </button>
+    try {
+        const modal = document.createElement('div');
+        modal.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.98); z-index:10000; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:15px;";
+        
+        modal.innerHTML = `
+            <div style="width:100%; max-width:500px; position:relative;">
+                <h3 style="color:white; text-align:center; margin-bottom:15px; font-family:sans-serif;">${escapeHtml(videoBaslik)}</h3>
+                
+                <div id="videoContainer" style="position: relative;">
+                    <div id="videoLoader" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; z-index: 10;">
+                        <div style="font-size: 24px; margin-bottom: 10px;">📹</div>
+                        <div>Video yükleniyor...</div>
+                        <div style="margin-top: 10px;">
+                            <div style="width: 40px; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; overflow: hidden; margin: 0 auto;">
+                                <div style="width: 100%; height: 100%; background: #f59e0b; animation: loading 1.5s infinite;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <video id="mainVideo" controls preload="metadata" style="width:100%; border-radius:12px; border:1px solid #444; background:#000;" onloadstart="showVideoLoader()" oncanplay="hideVideoLoader()">
+                        <source src="${videoUrl}" type="video/mp4">
+                        Tarayıcınız video oynatmayı desteklemiyor.
+                    </video>
+                </div>
+                
+                <style>
+                @keyframes loading {
+                    0% { transform: translateX(-100%); }
+                    100% { transform: translateX(100%); }
+                }
+                </style>
+                
+                <div style="margin-top:20px; text-align:center;">
+                    <button onclick="this.parentElement.parentElement.parentElement.remove()" 
+                            style="padding:12px 40px; background:#fff; color:#000; border:none; border-radius:25px; font-weight:bold; cursor:pointer;">
+                        Kapat
+                    </button>
+                </div>
             </div>
-        </div>
-    `;
-    
-    document.body.appendChild(modal);
-    modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
+        `;
+        
+        document.body.appendChild(modal);
+        modal.onclick = (e) => { if(e.target === modal) modal.remove(); };
+        
+        // Video yükleme hatası kontrolü
+        const video = modal.querySelector('video');
+        if (video) {
+            video.addEventListener('error', function(e) {
+                console.error('Video yükleme hatası:', videoUrl);
+                const errorDiv = document.createElement('div');
+                errorDiv.style.cssText = "color:white; text-align:center; padding:20px; background:rgba(220,38,38,0.8); border-radius:8px; margin-top:10px;";
+                errorDiv.textContent = 'Video yüklenemedi. Dosya mevcut değil olabilir.';
+                video.parentElement.appendChild(errorDiv);
+            });
+        }
+    } catch (error) {
+        console.error('Video oynatıcı hatası:', error);
+        alert('Video oynatıcı açılamadı. Lütfen tekrar deneyin.');
+    }
 }
 
 function showProcedures() {
+    // Sayfa değiştiğinde tüm sesleri durdur
+    stopAllSounds();
+    
     // Ana sayfadaki o grid butonlarını gizle
     const gridEl = document.querySelector('.grid');
     if(gridEl) gridEl.style.display = 'none';
@@ -1153,46 +2766,64 @@ function calculatePediatric() {
 
     
 
+    // Tema kontrolü - gece modunda çok daha kontrastlı renkler
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+    const textColor = isDarkMode ? '#f8fafc' : '#1f2937';
+    const boxBg1 = isDarkMode ? '#0f172a' : '#fff1f2';
+    const boxBg2 = isDarkMode ? '#0f172a' : '#f0f9ff';
+    const boxBg3 = isDarkMode ? '#0f172a' : '#fdf4ff';
+    const boxBg4 = isDarkMode ? '#0f172a' : '#f0fdf4';
+    const boxBg5 = isDarkMode ? '#0f172a' : '#fff7ed';
+    const titleColor1 = isDarkMode ? '#fbbf24' : '#e11d48';
+    const titleColor2 = isDarkMode ? '#60a5fa' : '#0284c7';
+    const titleColor3 = isDarkMode ? '#c084fc' : '#a21caf';
+    const titleColor4 = isDarkMode ? '#4ade80' : '#15803d';
+    const titleColor5 = isDarkMode ? '#fb923c' : '#c2410c';
+    const borderColor = isDarkMode ? '#475569' : '#fecdd3';
+
     // --- 3. SONUÇ EKRANI (Senin İlaç Listenle Birlikte) ---
     resultArea.innerHTML = `
-        <div style="background:#fff1f2; padding:12px; border-radius:10px; margin-top:15px; border:1px solid #fecdd3;">
-            <h4 style="color:#e11d48; margin-bottom:8px;">📊 Tahmini Vitaller (${kilo.toFixed(1)} kg)</h4>
-            <div style="font-size:13px; line-height:1.6;">
-                <p>💓 <b>Nabız:</b> ${v.n} | 🌬️ <b>Solunum:</b> ${v.s}</p>
-                <p>🩸 <b>Sistolik KB:</b> ${v.tans} mmHg</p>
-                <p style="color:#dc2626; font-weight:bold;">⚠️ Hipotansiyon Sınırı: < ${hipo} mmHg</p>
-                <p>🫁 <b>Tüp (Kaflı):</b> ${kafli.toFixed(1)} / <b>Derinlik:</b> ${derinlik.toFixed(1)} cm</p>
+        <div style="background:${boxBg1}; padding:12px; border-radius:10px; margin-top:15px; border:1px solid ${borderColor}; color: ${textColor};">
+            <h4 style="color:${titleColor1}; margin-bottom:8px;">📊 Tahmini Vitaller (${kilo.toFixed(1)} kg)</h4>
+            <div style="font-size:13px; line-height:1.6; color: ${textColor};">
+                <p style="color: ${textColor};">💓 <b style="color: ${textColor};">Nabız:</b> ${v.n} | 🌬️ <b style="color: ${textColor};">Solunum:</b> ${v.s}</p>
+                <p style="color: ${textColor};">🩸 <b style="color: ${textColor};">Sistolik KB:</b> ${v.tans} mmHg</p>
+                <p style="color:${isDarkMode ? '#f87171' : '#dc2626'}; font-weight:bold;">⚠️ Hipotansiyon Sınırı: < ${hipo} mmHg</p>
+                <p style="color: ${textColor};">🫁 <b style="color: ${textColor};">Tüp (Kaflı):</b> ${kafli.toFixed(1)} / <b style="color: ${textColor};">Derinlik:</b> ${derinlik.toFixed(1)} cm</p>
             </div>
         </div>
 
-        <div class="drug-section" style="background:#f0f9ff; padding:12px; border-radius:10px; margin-top:10px; border:1px solid #bae6fd;">
-            <h4 style="color:#0284c7; margin-bottom:8px;">🚨 Resüsitasyon (Arrest)</h4>
-            <p style="font-size:12px;"><b>Adrenalin (0.1mg/ml):</b> ${(kilo * 0.1).toFixed(1)} ml IV/IO</p>
-            <p style="font-size:12px;"><b>Amiodaron (5mg/kg):</b> ${(kilo * 5).toFixed(1)} mg</p>
-            <p style="font-size:12px;"><b>Defibrilasyon (2J/4J):</b> ${kilo * 2}J / ${kilo * 4}J</p>
+        <div class="drug-section" style="background:${boxBg2}; padding:12px; border-radius:10px; margin-top:10px; border:1px solid ${borderColor}; color: ${textColor};">
+            <h4 style="color:${titleColor2}; margin-bottom:8px;">🚨 Resüsitasyon (Arrest)</h4>
+            <p style="font-size:12px; color: ${textColor};"><b style="color: ${textColor};">Adrenalin (0.1mg/ml):</b> ${(kilo * 0.1).toFixed(1)} ml IV/IO</p>
+            <p style="font-size:12px; color: ${textColor};"><b style="color: ${textColor};">Amiodaron (5mg/kg):</b> ${(kilo * 5).toFixed(1)} mg</p>
+            <p style="font-size:12px; color: ${textColor};"><b style="color: ${textColor};">Defibrilasyon (2J/4J):</b> ${kilo * 2}J / ${kilo * 4}J</p>
         </div>
 
-        <div class="drug-section" style="background:#fdf4ff; padding:12px; border-radius:10px; margin-top:10px; border:1px solid #f5d0fe;">
-            <h4 style="color:#a21caf; margin-bottom:8px;">🧠 Nöbet Kontrolü</h4>
-            <p style="font-size:12px;"><b>Midazolam (IV/IO):</b> ${(kilo * 0.1).toFixed(2)} mg</p>
-            <p style="font-size:12px;"><b>Midazolam (IM/Nazal):</b> ${(kilo * 0.2).toFixed(2)} mg</p>
-            <p style="font-size:12px;"><b>Diazepam (Rektal):</b> ${(kilo * 0.5).toFixed(1)} mg</p>
+        <div class="drug-section" style="background:${boxBg3}; padding:12px; border-radius:10px; margin-top:10px; border:1px solid ${borderColor}; color: ${textColor};">
+            <h4 style="color:${titleColor3}; margin-bottom:8px;">🧠 Nöbet Kontrolü</h4>
+            <p style="font-size:12px; color: ${textColor};"><b style="color: ${textColor};">Midazolam (IV/IO):</b> ${(kilo * 0.1).toFixed(2)} mg</p>
+            <p style="font-size:12px; color: ${textColor};"><b style="color: ${textColor};">Midazolam (IM/Nazal):</b> ${(kilo * 0.2).toFixed(2)} mg</p>
+            <p style="font-size:12px; color: ${textColor};"><b style="color: ${textColor};">Diazepam (Rektal):</b> ${(kilo * 0.5).toFixed(1)} mg</p>
         </div>
 
-        <div class="drug-section" style="background:#f0fdf4; padding:12px; border-radius:10px; margin-top:10px; border:1px solid #bbf7d0;">
-            <h4 style="color:#15803d; margin-bottom:8px;">🫁 Solunum & Anafilaksi</h4>
-            <p style="font-size:12px;"><b>Adrenalin IM:</b> ${(kilo * 0.01).toFixed(2)} mg (Max 0.3)</p>
-            <p style="font-size:12px;"><b>Metilprednizolon:</b> ${(kilo * 1).toFixed(1)}-${(kilo * 2).toFixed(1)} mg</p>
+        <div class="drug-section" style="background:${boxBg4}; padding:12px; border-radius:10px; margin-top:10px; border:1px solid ${borderColor}; color: ${textColor};">
+            <h4 style="color:${titleColor4}; margin-bottom:8px;">🫁 Solunum & Anafilaksi</h4>
+            <p style="font-size:12px; color: ${textColor};"><b style="color: ${textColor};">Adrenalin IM:</b> ${(kilo * 0.01).toFixed(2)} mg (Max 0.3)</p>
+            <p style="font-size:12px; color: ${textColor};"><b style="color: ${textColor};">Metilprednizolon:</b> ${(kilo * 1).toFixed(1)}-${(kilo * 2).toFixed(1)} mg</p>
         </div>
 
-        <div class="drug-section" style="background:#fff7ed; padding:12px; border-radius:10px; margin-top:10px; border:1px solid #ffedd5;">
-            <h4 style="color:#c2410c; margin-bottom:8px;">💧 Sıvı & Hipoglisemi</h4>
-            <p style="font-size:12px;"><b>İzotonik Bolus:</b> ${kilo * 20} ml</p>
-            <p style="font-size:12px;"><b>%10 Dekstroz:</b> ${kilo * 2} ml (Yeni doğan)</p>
+        <div class="drug-section" style="background:${boxBg5}; padding:12px; border-radius:10px; margin-top:10px; border:1px solid ${borderColor}; color: ${textColor};">
+            <h4 style="color:${titleColor5}; margin-bottom:8px;">💧 Sıvı & Hipoglisemi</h4>
+            <p style="font-size:12px; color: ${textColor};"><b style="color: ${textColor};">İzotonik Bolus:</b> ${kilo * 20} ml</p>
+            <p style="font-size:12px; color: ${textColor};"><b style="color: ${textColor};">%10 Dekstroz:</b> ${kilo * 2} ml (Yeni doğan)</p>
         </div>
     `;
 }
 function showChildCalc() {
+    // Sayfa değiştiğinde tüm sesleri durdur
+    stopAllSounds();
+    
     const gridEl = document.querySelector('.grid');
     if(gridEl) gridEl.style.display = 'none';
 
@@ -1246,6 +2877,9 @@ function filterCocuk(category, title) {
 }
 
 function resetCocukView() {
+    // Sayfa değiştiğinde tüm sesleri durdur
+    stopAllSounds();
+    
     document.getElementById('cocukCategoryMenu').style.display = 'grid'; // Kategorileri geri getir
     document.getElementById('cocukTitle').innerText = 'Çocuk Ön Tanılar'; // Başlığı sıfırla
     document.getElementById('cocukGrid').style.display = 'none'; // Butonları gizle
@@ -1259,3 +2893,349 @@ function playAudio(file) {
         alert("Ses çalınamadı. Lütfen dosyayı kontrol edin veya tarayıcı izinlerini açın.");
     });
 }
+
+// ========== DARK MODE SİSTEMİ ==========
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+}
+
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+    
+    // Çocuk doz hesaplamalarını yeniden render et (tema değiştiğinde renkler güncellensin)
+    const kiloInput = document.getElementById("kiloInput");
+    if (kiloInput && kiloInput.value) {
+        hesaplaCocukDoz();
+    }
+    
+    // Tahmini vital hesaplamalarını da yeniden render et
+    const childAge = document.getElementById("child-age");
+    const childMonth = document.getElementById("child-month");
+    const childWeight = document.getElementById("child-weight");
+    if ((childAge && childAge.value) || (childMonth && childMonth.value) || (childWeight && childWeight.value)) {
+        calculatePediatric();
+    }
+}
+
+function updateThemeIcon(theme) {
+    const btn = document.getElementById('themeToggle');
+    if (btn) {
+        btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+}
+
+// Sayfa yüklendiğinde tema yükle
+document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+});
+
+// ========== FAVORİLER SİSTEMİ ==========
+function getFavorites() {
+    try {
+        const favorites = localStorage.getItem('favorites');
+        return favorites ? JSON.parse(favorites) : [];
+    } catch (e) {
+        console.error('Favoriler yüklenemedi:', e);
+        return [];
+    }
+}
+
+function saveFavorites(favorites) {
+    try {
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    } catch (e) {
+        console.error('Favoriler kaydedilemedi:', e);
+    }
+}
+
+function toggleFavorite(key, grupName) {
+    const favorites = getFavorites();
+    const favoriteId = `${grupName}_${key}`;
+    const index = favorites.indexOf(favoriteId);
+    
+    if (index > -1) {
+        favorites.splice(index, 1);
+    } else {
+        favorites.push(favoriteId);
+    }
+    
+    saveFavorites(favorites);
+    renderFavorites();
+    updateFavoriteButton(key, grupName);
+}
+
+function isFavorite(key, grupName) {
+    const favorites = getFavorites();
+    const favoriteId = `${grupName}_${key}`;
+    return favorites.includes(favoriteId);
+}
+
+function updateFavoriteButton(key, grupName) {
+    // Algoritma sayfasındaki favori butonunu güncelle
+    const favoriteBtn = document.getElementById(`fav-${key}-${grupName}`);
+    if (favoriteBtn) {
+        if (isFavorite(key, grupName)) {
+            favoriteBtn.classList.add('active');
+            favoriteBtn.textContent = '⭐ Favorilerden Çıkar';
+        } else {
+            favoriteBtn.classList.remove('active');
+            favoriteBtn.textContent = '⭐ Favorilere Ekle';
+        }
+    }
+}
+
+function renderFavorites() {
+    const favorites = getFavorites();
+    const favoritesSection = document.getElementById('favoritesSection');
+    const favoritesGrid = document.getElementById('favoritesGrid');
+    const noFavorites = document.getElementById('noFavorites');
+    
+    if (!favoritesSection || !favoritesGrid) return;
+    
+    if (favorites.length === 0) {
+        favoritesSection.style.display = 'none';
+        return;
+    }
+    
+    favoritesSection.style.display = 'block';
+    favoritesGrid.innerHTML = '';
+    
+    favorites.forEach(favId => {
+        const [grupName, key] = favId.split('_');
+        const grupKey = grupName.toLowerCase() === 'yetişkin' || grupName.toLowerCase().startsWith('y') ? 'yetiskin' : 'cocuk';
+        const algo = algorithmData[grupKey]?.[key];
+        
+        if (!algo) return;
+        
+        const favItem = document.createElement('div');
+        favItem.className = 'favorite-item';
+        favItem.innerHTML = `
+            <div style="font-weight: bold; margin-bottom: 5px;">${escapeHtml(algo.title)}</div>
+            <div style="font-size: 12px; color: var(--muted);">${grupName}</div>
+        `;
+        favItem.onclick = () => showAlgo(key, grupName);
+        
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = '✕';
+        removeBtn.style.cssText = 'float: right; background: transparent; border: none; color: var(--danger); cursor: pointer; font-size: 18px; padding: 0; width: 24px; height: 24px;';
+        removeBtn.onclick = (e) => {
+            e.stopPropagation();
+            toggleFavorite(key, grupName);
+        };
+        
+        favItem.appendChild(removeBtn);
+        favoritesGrid.appendChild(favItem);
+    });
+    
+    if (noFavorites) noFavorites.style.display = 'none';
+}
+
+// Sayfa yüklendiğinde favorileri göster
+window.addEventListener('load', () => {
+    setTimeout(renderFavorites, 100);
+});
+
+// ========== GELİŞMİŞ ARAMA SİSTEMİ ==========
+function fuzzyMatch(str, pattern) {
+    pattern = pattern.toLowerCase();
+    str = str.toLowerCase();
+    let patternIdx = 0;
+    for (let i = 0; i < str.length && patternIdx < pattern.length; i++) {
+        if (str[i] === pattern[patternIdx]) {
+            patternIdx++;
+        }
+    }
+    return patternIdx === pattern.length;
+}
+
+function searchAlgo() {
+    const q = document.getElementById("searchInput") ? document.getElementById("searchInput").value.trim().toLowerCase() : '';
+    const buttons = document.querySelectorAll("button[onclick*='showAlgo']");
+    
+    if (!q) {
+        buttons.forEach(btn => {
+            btn.style.display = 'inline-block';
+        });
+        return;
+    }
+    
+    let matchCount = 0;
+    
+    buttons.forEach(btn => {
+        const text = (btn.textContent || btn.innerText || '').toLowerCase();
+        const tags = (btn.getAttribute('data-tags') || '').toLowerCase();
+        const category = (btn.getAttribute('data-category') || '').toLowerCase();
+        
+        // 1. Tam eşleşme (en yüksek öncelik)
+        const exactMatch = text.includes(q) || tags.includes(q) || category.includes(q);
+        
+        // 2. Fuzzy match (yazım hatası toleransı)
+        const fuzzyMatchText = fuzzyMatch(text, q) || fuzzyMatch(tags, q);
+        
+        // 3. Kelime bazlı arama (boşluklarla ayrılmış)
+        const words = q.split(/\s+/);
+        const wordMatch = words.every(word => 
+            text.includes(word) || tags.includes(word) || category.includes(word)
+        );
+        
+        const match = exactMatch || fuzzyMatchText || wordMatch;
+        btn.style.display = match ? 'inline-block' : 'none';
+        
+        if (match) matchCount++;
+    });
+    
+    // Arama sonuçları yoksa bilgi ver
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+        if (q && matchCount === 0) {
+            searchInput.style.border = '2px solid var(--danger)';
+            searchInput.title = 'Sonuç bulunamadı. Farklı bir arama terimi deneyin.';
+        } else {
+            searchInput.style.border = '';
+            searchInput.title = `${matchCount} sonuç bulundu`;
+        }
+    }
+}
+
+// Enter tuşu ile arama
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchAlgo();
+            }
+        });
+    }
+});
+
+function renderFavorites() {
+    const favorites = getFavorites();
+    const favoritesSection = document.getElementById('favoritesSection');
+    const favoritesGrid = document.getElementById('favoritesGrid');
+    const noFavorites = document.getElementById('noFavorites');
+    
+    if (!favoritesSection || !favoritesGrid) return;
+    
+    if (favorites.length === 0) {
+        favoritesSection.style.display = 'none';
+        return;
+    }
+    
+    favoritesSection.style.display = 'block';
+    favoritesGrid.innerHTML = '';
+    
+    favorites.forEach(favId => {
+        const [grupName, key] = favId.split('_');
+        const grupKey = grupName.toLowerCase() === 'yetişkin' || grupName.toLowerCase().startsWith('y') ? 'yetiskin' : 'cocuk';
+        const algo = algorithmData[grupKey]?.[key];
+        
+        if (!algo) return;
+        
+        const favItem = document.createElement('div');
+        favItem.className = 'favorite-item';
+        favItem.innerHTML = `
+            <div style="font-weight: bold; margin-bottom: 5px;">${escapeHtml(algo.title)}</div>
+            <div style="font-size: 12px; color: var(--muted);">${grupName}</div>
+        `;
+        favItem.onclick = () => showAlgo(key, grupName);
+        
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = '✕';
+        removeBtn.style.cssText = 'float: right; background: transparent; border: none; color: var(--danger); cursor: pointer; font-size: 18px; padding: 0; width: 24px; height: 24px;';
+        removeBtn.onclick = (e) => {
+            e.stopPropagation();
+            toggleFavorite(key, grupName);
+        };
+        
+        favItem.appendChild(removeBtn);
+        favoritesGrid.appendChild(favItem);
+    });
+    
+    if (noFavorites) noFavorites.style.display = 'none';
+}
+
+// Sayfa yüklendiğinde favorileri göster
+window.addEventListener('load', () => {
+    setTimeout(renderFavorites, 100);
+});
+
+// ========== GELİŞMİŞ ARAMA SİSTEMİ ==========
+function fuzzyMatch(str, pattern) {
+    pattern = pattern.toLowerCase();
+    str = str.toLowerCase();
+    let patternIdx = 0;
+    for (let i = 0; i < str.length && patternIdx < pattern.length; i++) {
+        if (str[i] === pattern[patternIdx]) {
+            patternIdx++;
+        }
+    }
+    return patternIdx === pattern.length;
+}
+
+function searchAlgo() {
+    const q = document.getElementById("searchInput") ? document.getElementById("searchInput").value.trim().toLowerCase() : '';
+    const buttons = document.querySelectorAll("button[onclick*='showAlgo']");
+    
+    if (!q) {
+        buttons.forEach(btn => {
+            btn.style.display = 'inline-block';
+        });
+        return;
+    }
+    
+    let matchCount = 0;
+    
+    buttons.forEach(btn => {
+        const text = (btn.textContent || btn.innerText || '').toLowerCase();
+        const tags = (btn.getAttribute('data-tags') || '').toLowerCase();
+        const category = (btn.getAttribute('data-category') || '').toLowerCase();
+        
+        // 1. Tam eşleşme (en yüksek öncelik)
+        const exactMatch = text.includes(q) || tags.includes(q) || category.includes(q);
+        
+        // 2. Fuzzy match (yazım hatası toleransı)
+        const fuzzyMatchText = fuzzyMatch(text, q) || fuzzyMatch(tags, q);
+        
+        // 3. Kelime bazlı arama (boşluklarla ayrılmış)
+        const words = q.split(/\s+/);
+        const wordMatch = words.every(word => 
+            text.includes(word) || tags.includes(word) || category.includes(word)
+        );
+        
+        const match = exactMatch || fuzzyMatchText || wordMatch;
+        btn.style.display = match ? 'inline-block' : 'none';
+        
+        if (match) matchCount++;
+    });
+    
+    // Arama sonuçları yoksa bilgi ver
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+        if (q && matchCount === 0) {
+            searchInput.style.border = '2px solid var(--danger)';
+            searchInput.title = 'Sonuç bulunamadı. Farklı bir arama terimi deneyin.';
+        } else {
+            searchInput.style.border = '';
+            searchInput.title = `${matchCount} sonuç bulundu`;
+        }
+    }
+}
+
+// Enter tuşu ile arama
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchAlgo();
+            }
+        });
+    }
+});
