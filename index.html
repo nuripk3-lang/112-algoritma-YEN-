@@ -34,6 +34,32 @@
   <meta name="msapplication-config" content="browserconfig.xml">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css?v=super-dark-fix-v29-bypass">
+  
+  <!-- Gece Modu Yazı Düzeltmesi - Cache Bypass -->
+  <style>
+    /* Çocuk Doz Hesaplamaları - Yazıları Siyah Tut */
+    [data-theme="dark"] #dozSonuc,
+    [data-theme="dark"] #dozSonuc *,
+    [data-theme="dark"] #calc-results,
+    [data-theme="dark"] #calc-results * {
+      color: #1f2937 !important;
+    }
+    
+    /* İlaç Tablosu - Yazıları Siyah Tut */
+    [data-theme="dark"] #ilacTabloSection table,
+    [data-theme="dark"] #ilacTabloSection table *,
+    [data-theme="dark"] #ilacTabloSection td,
+    [data-theme="dark"] #ilacTabloSection th {
+      color: #1f2937 !important;
+    }
+    
+    /* Başlıkları Sarı Yap (Okunabilir) */
+    [data-theme="dark"] #dozSonuc .decision-title,
+    [data-theme="dark"] #calc-results h4,
+    [data-theme="dark"] #ilacTabloSection h2 {
+      color: #f59e0b !important;
+    }
+  </style>
 </head>
 <body>
 <div id="splash-screen" onclick="closeSplashScreen()" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; cursor: pointer;" title="Tıklayarak geç">
@@ -250,6 +276,6 @@
 
 </div>
 
-<script src="app.js?v=super-dark-fix-v29-bypass" defer></script>
+<script src="app.js?v=inline-css-fix-v30" defer></script>
 </body>
 </html>
