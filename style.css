@@ -82,29 +82,154 @@
 }
 
 [data-theme="dark"] #cocukDozSection label,
-[data-theme="dark"] #cocukDozSection .info {
-  color: var(--text) !important;
+[data-theme="dark"] #cocukDozSection .info,
+[data-theme="dark"] #cocukDozSection p,
+[data-theme="dark"] #cocukDozSection div {
+  color: #e2e8f0 !important;
 }
 
 [data-theme="dark"] #cocukDozSection input,
 [data-theme="dark"] #cocukDozSection select {
-  background: var(--input-bg) !important;
-  color: var(--text) !important;
+  background: #334155 !important;
+  color: #f1f5f9 !important;
   border-color: #475569 !important;
 }
 
 [data-theme="dark"] #cocukDozSection h2,
 [data-theme="dark"] #ilacTabloSection h2 {
-  color: var(--text) !important;
+  color: #f59e0b !important;
 }
 
+/* Doz Sonuçları için Çok Güçlü Kurallar */
 [data-theme="dark"] #dozSonuc {
-  color: var(--text) !important;
+  color: #f8fafc !important;
+  background: #0f172a !important;
 }
 
-[data-theme="dark"] #dozSonuc .drug-box {
+[data-theme="dark"] #dozSonuc * {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] #dozSonuc .decision-box {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #475569 !important;
+}
+
+[data-theme="dark"] #dozSonuc .decision-title {
+  color: #fbbf24 !important;
+}
+
+[data-theme="dark"] #dozSonuc b,
+[data-theme="dark"] #dozSonuc span,
+[data-theme="dark"] #dozSonuc small,
+[data-theme="dark"] #dozSonuc p,
+[data-theme="dark"] #dozSonuc div {
+  color: #f8fafc !important;
+}
+
+/* Tahmini Vitaller için Güçlü Kurallar */
+[data-theme="dark"] #calc-results {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] #calc-results * {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] #calc-results .drug-section {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #475569 !important;
+}
+
+[data-theme="dark"] #calc-results h4 {
+  color: #fbbf24 !important;
+}
+
+[data-theme="dark"] #calc-results p,
+[data-theme="dark"] #calc-results b,
+[data-theme="dark"] #calc-results span {
+  color: #f8fafc !important;
+}
+
+/* İlaç Tablosu Gece Modu - Çok Güçlü */
+[data-theme="dark"] #ilacTabloSection table,
+[data-theme="dark"] #ilacTabloSection table * {
+  color: #f8fafc !important;
+  background: #0f172a !important;
+}
+
+[data-theme="dark"] #ilacTabloSection table td {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #475569 !important;
+}
+
+[data-theme="dark"] #ilacTabloSection table th {
+  background: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #475569 !important;
+}
+
+[data-theme="dark"] #ilacTabloSection table tr:nth-child(even) td {
+  background: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+/* Genel Çocuk Hesaplama Sayfası */
+[data-theme="dark"] .algo-card {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .algo-card * {
+  color: #f8fafc !important;
+}
+
+/* Genel gece modu yazı renkleri */
+[data-theme="dark"] .section {
+  color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .section * {
+  color: inherit !important;
+}
+
+/* Kategori Butonları Gece Modu Düzeltmeleri */
+[data-theme="dark"] #yetiskinCategoryMenu button,
+[data-theme="dark"] #cocukCategoryMenu button {
+  color: #f8fafc !important;
+  background: #1e293b !important;
+  border-color: #475569 !important;
+}
+
+/* Kardiyak butonları */
+[data-theme="dark"] button[onclick*="cardiac"] {
   background: #7f1d1d !important;
   color: #fecaca !important;
+  border-color: #dc2626 !important;
+}
+
+/* Solunum butonları */
+[data-theme="dark"] button[onclick*="respiratory"] {
+  background: #14532d !important;
+  color: #bbf7d0 !important;
+  border-color: #16a34a !important;
+}
+
+/* Nörolojik butonları */
+[data-theme="dark"] button[onclick*="neuro"] {
+  background: #312e81 !important;
+  color: #c7d2fe !important;
+  border-color: #4f46e5 !important;
+}
+
+/* Diğer butonları */
+[data-theme="dark"] button[onclick*="other"] {
+  background: #78350f !important;
+  color: #fde68a !important;
+  border-color: #f59e0b !important;
 }
 
 *{box-sizing:border-box}
