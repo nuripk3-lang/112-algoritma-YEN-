@@ -1808,12 +1808,12 @@ function hesaplaCocukDoz() {
   const res = document.getElementById("dozSonuc");
   if (!kg || kg <= 0) { res.innerHTML = ""; return; }
 
-  // Tema kontrolü - gece modunda çok daha kontrastlı renkler
+  // Tema kontrolü - gece modunda siyah yazı + beyaz arka plan
   const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-  const textColor = isDarkMode ? '#f8fafc' : '#1f2937';        // Çok açık gri (gece modunda)
-  const boxBg = isDarkMode ? '#0f172a' : '#f3f4f6';            // Çok koyu mavi (gece modunda)
-  const titleColor = isDarkMode ? '#fbbf24' : '#b91c1c';       // Parlak sarı (gece modunda)
-  const borderColor = isDarkMode ? '#475569' : '#d1d5db';      // Orta gri (gece modunda)
+  const textColor = isDarkMode ? '#000000' : '#1f2937';        // Siyah yazı (gece modunda)
+  const boxBg = isDarkMode ? '#ffffff' : '#f3f4f6';            // Beyaz arka plan (gece modunda)
+  const titleColor = isDarkMode ? '#dc2626' : '#b91c1c';       // Kırmızı başlık (gece modunda)
+  const borderColor = isDarkMode ? '#cccccc' : '#d1d5db';      // Açık gri border (gece modunda)
 
   let h = `<div style="text-align:left; margin-top:15px; display:flex; flex-direction:column; gap:15px; color: ${textColor} !important;">`;
 
@@ -1870,17 +1870,53 @@ function hesaplaCocukDoz() {
       const dozSonuc = document.getElementById('dozSonuc');
       const allElements = dozSonuc.querySelectorAll('*');
       
-      dozSonuc.style.setProperty('background', '#0f172a', 'important');
-      dozSonuc.style.setProperty('color', '#f8fafc', 'important');
+      dozSonuc.style.setProperty('background', '#ffffff', 'important');
+      dozSonuc.style.setProperty('color', '#000000', 'important');
       
       allElements.forEach(el => {
-        el.style.setProperty('color', '#f8fafc', 'important');
+        el.style.setProperty('color', '#000000', 'important');
         if (el.classList.contains('decision-title')) {
-          el.style.setProperty('color', '#fbbf24', 'important');
+          el.style.setProperty('color', '#dc2626', 'important');
         }
       });
+      
+      // Agresif düzeltme fonksiyonunu da çağır
+      forceDarkModeTextColors();
     }
   }, 100);
+}
+
+// ULTRA AGRESİF GECE MODU YAZISI DÜZELTMESİ
+function forceDarkModeTextColors() {
+  const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+  if (!isDarkMode) return;
+  
+  // Çocuk doz hesaplamaları
+  const dozElements = document.querySelectorAll('#dozSonuc, #dozSonuc *, #calc-results, #calc-results *');
+  dozElements.forEach(el => {
+    el.style.setProperty('color', '#000000', 'important');
+    el.style.setProperty('background', '#ffffff', 'important');
+  });
+  
+  // İlaç tablosu
+  const tableElements = document.querySelectorAll('#ilacTabloSection table, #ilacTabloSection table *, #ilacTabloSection td, #ilacTabloSection th');
+  tableElements.forEach(el => {
+    el.style.setProperty('color', '#000000', 'important');
+    el.style.setProperty('background', '#ffffff', 'important');
+  });
+  
+  // Decision box'lar
+  const decisionElements = document.querySelectorAll('.decision-box, .decision-box *, .drug-section, .drug-section *');
+  decisionElements.forEach(el => {
+    el.style.setProperty('color', '#000000', 'important');
+    el.style.setProperty('background', '#ffffff', 'important');
+  });
+  
+  // Başlıklar
+  const titleElements = document.querySelectorAll('.decision-title, #calc-results h4, #ilacTabloSection h2');
+  titleElements.forEach(el => {
+    el.style.setProperty('color', '#dc2626', 'important');
+  });
 }
 
 function clearContent() {
@@ -2071,12 +2107,12 @@ function renderIlacTablosu() {
     {ad: "Dormicum", form: "5/15 mg", not: "SF ile sulandırılabilir. Titre ederek (yavaş) verilir."}
   ];
 
-  // Tema kontrolü - gece modunda çok daha kontrastlı renkler
+  // Tema kontrolü - gece modunda siyah yazı + beyaz arka plan
   const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-  const textColor = isDarkMode ? '#f8fafc' : '#1f2937';        // Çok açık gri (gece modunda)
-  const bgEven = isDarkMode ? '#0f172a' : '#ffffff';           // Çok koyu mavi (gece modunda)
-  const bgOdd = isDarkMode ? '#1e293b' : '#f8fafc';            // Orta koyu mavi (gece modunda)
-  const borderColor = isDarkMode ? '#475569' : '#eee';         // Orta gri (gece modunda)
+  const textColor = isDarkMode ? '#000000' : '#1f2937';        // Siyah yazı (gece modunda)
+  const bgEven = isDarkMode ? '#ffffff' : '#ffffff';           // Beyaz arka plan (gece modunda)
+  const bgOdd = isDarkMode ? '#f8f8f8' : '#f8fafc';            // Açık gri arka plan (gece modunda)
+  const borderColor = isDarkMode ? '#cccccc' : '#eee';         // Açık gri border (gece modunda)
 
   let html = "";
   ilaclar.forEach((i, index) => {
@@ -2097,23 +2133,26 @@ function renderIlacTablosu() {
     const allCells = document.querySelectorAll('#ilacTabloSection table td, #ilacTabloSection table th');
     
     if (isDarkMode && table) {
-      table.style.setProperty('background', '#0f172a', 'important');
-      table.style.setProperty('color', '#f8fafc', 'important');
+      table.style.setProperty('background', '#ffffff', 'important');
+      table.style.setProperty('color', '#000000', 'important');
       
       if (tableHeader) {
-        tableHeader.style.setProperty('background', '#1e293b', 'important');
-        tableHeader.style.setProperty('color', '#f8fafc', 'important');
+        tableHeader.style.setProperty('background', '#f0f0f0', 'important');
+        tableHeader.style.setProperty('color', '#000000', 'important');
       }
       
       if (tableBody) {
-        tableBody.style.setProperty('background', '#0f172a', 'important');
-        tableBody.style.setProperty('color', '#f8fafc', 'important');
+        tableBody.style.setProperty('background', '#ffffff', 'important');
+        tableBody.style.setProperty('color', '#000000', 'important');
       }
       
       allCells.forEach(cell => {
-        cell.style.setProperty('color', '#f8fafc', 'important');
-        cell.style.setProperty('border-color', '#475569', 'important');
+        cell.style.setProperty('color', '#000000', 'important');
+        cell.style.setProperty('border-color', '#cccccc', 'important');
       });
+      
+      // Agresif düzeltme fonksiyonunu da çağır
+      forceDarkModeTextColors();
     }
   }, 100);
 }
@@ -2820,20 +2859,20 @@ function calculatePediatric() {
 
     
 
-    // Tema kontrolü - gece modunda çok daha kontrastlı renkler
+    // Tema kontrolü - gece modunda siyah yazı + beyaz arka plan
     const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-    const textColor = isDarkMode ? '#f8fafc' : '#1f2937';
-    const boxBg1 = isDarkMode ? '#0f172a' : '#fff1f2';
-    const boxBg2 = isDarkMode ? '#0f172a' : '#f0f9ff';
-    const boxBg3 = isDarkMode ? '#0f172a' : '#fdf4ff';
-    const boxBg4 = isDarkMode ? '#0f172a' : '#f0fdf4';
-    const boxBg5 = isDarkMode ? '#0f172a' : '#fff7ed';
-    const titleColor1 = isDarkMode ? '#fbbf24' : '#e11d48';
-    const titleColor2 = isDarkMode ? '#60a5fa' : '#0284c7';
-    const titleColor3 = isDarkMode ? '#c084fc' : '#a21caf';
-    const titleColor4 = isDarkMode ? '#4ade80' : '#15803d';
-    const titleColor5 = isDarkMode ? '#fb923c' : '#c2410c';
-    const borderColor = isDarkMode ? '#475569' : '#fecdd3';
+    const textColor = isDarkMode ? '#000000' : '#1f2937';
+    const boxBg1 = isDarkMode ? '#ffffff' : '#fff1f2';
+    const boxBg2 = isDarkMode ? '#ffffff' : '#f0f9ff';
+    const boxBg3 = isDarkMode ? '#ffffff' : '#fdf4ff';
+    const boxBg4 = isDarkMode ? '#ffffff' : '#f0fdf4';
+    const boxBg5 = isDarkMode ? '#ffffff' : '#fff7ed';
+    const titleColor1 = isDarkMode ? '#dc2626' : '#e11d48';
+    const titleColor2 = isDarkMode ? '#dc2626' : '#0284c7';
+    const titleColor3 = isDarkMode ? '#dc2626' : '#a21caf';
+    const titleColor4 = isDarkMode ? '#dc2626' : '#15803d';
+    const titleColor5 = isDarkMode ? '#dc2626' : '#c2410c';
+    const borderColor = isDarkMode ? '#cccccc' : '#fecdd3';
 
     // --- 3. SONUÇ EKRANI (Senin İlaç Listenle Birlikte) ---
     resultArea.innerHTML = `
@@ -2873,6 +2912,14 @@ function calculatePediatric() {
             <p style="font-size:12px; color: ${textColor};"><b style="color: ${textColor};">%10 Dekstroz:</b> ${kilo * 2} ml (Yeni doğan)</p>
         </div>
     `;
+    
+    // Gece modundaysa agresif düzeltme uygula
+    setTimeout(() => {
+        const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+        if (isDarkMode) {
+            forceDarkModeTextColors();
+        }
+    }, 100);
 }
 function showChildCalc() {
     // Sayfa değiştiğinde tüm sesleri durdur
@@ -2920,11 +2967,11 @@ function showChildCalc() {
             
             allElements.forEach(el => {
                 if (el.tagName === 'LABEL' || el.tagName === 'INPUT' || el.tagName === 'H2') {
-                    el.style.setProperty('color', '#f8fafc', 'important');
+                    el.style.setProperty('color', '#000000', 'important');
                 }
                 if (el.classList.contains('drug-section')) {
-                    el.style.setProperty('color', '#f8fafc', 'important');
-                    el.style.setProperty('background', '#0f172a', 'important');
+                    el.style.setProperty('color', '#000000', 'important');
+                    el.style.setProperty('background', '#ffffff', 'important');
                 }
             });
         }
@@ -2972,6 +3019,13 @@ function initTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
+    
+    // Eğer gece modundaysa yazı renklerini zorla düzelt
+    if (savedTheme === 'dark') {
+        setTimeout(() => {
+            forceDarkModeTextColors();
+        }, 100);
+    }
 }
 
 function toggleTheme() {
@@ -2980,6 +3034,13 @@ function toggleTheme() {
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
+    
+    // AGRESIF GECE MODU YAZI DÜZELTMESİ
+    setTimeout(() => {
+        if (newTheme === 'dark') {
+            forceDarkModeTextColors();
+        }
+    }, 50);
     
     // Çocuk doz hesaplamalarını yeniden render et (tema değiştiğinde renkler güncellensin)
     const kiloInput = document.getElementById("kiloInput");
@@ -2994,6 +3055,75 @@ function toggleTheme() {
     if ((childAge && childAge.value) || (childMonth && childMonth.value) || (childWeight && childWeight.value)) {
         calculatePediatric();
     }
+}
+
+// AGRESIF GECE MODU YAZI DÜZELTMESİ FONKSİYONU
+function forceDarkModeTextColors() {
+    console.log('🌙 Gece modu yazı renkleri zorla düzeltiliyor...');
+    
+    // Çocuk Doz Hesaplama Alanı
+    const dozSonuc = document.getElementById('dozSonuc');
+    if (dozSonuc) {
+        dozSonuc.style.setProperty('background', '#0f172a', 'important');
+        dozSonuc.style.setProperty('color', '#f8fafc', 'important');
+        
+        const allDozElements = dozSonuc.querySelectorAll('*');
+        allDozElements.forEach(el => {
+            el.style.setProperty('color', '#f8fafc', 'important');
+            el.style.setProperty('background', 'transparent', 'important');
+            if (el.classList.contains('decision-title') || el.tagName === 'B') {
+                el.style.setProperty('color', '#fbbf24', 'important');
+            }
+        });
+    }
+    
+    // Pediyatrik Hesaplayıcı Alanı
+    const calcResults = document.getElementById('calc-results');
+    if (calcResults) {
+        calcResults.style.setProperty('color', '#f8fafc', 'important');
+        
+        const allCalcElements = calcResults.querySelectorAll('*');
+        allCalcElements.forEach(el => {
+            el.style.setProperty('color', '#f8fafc', 'important');
+            el.style.setProperty('background', 'transparent', 'important');
+            if (el.tagName === 'H4') {
+                el.style.setProperty('color', '#fbbf24', 'important');
+            }
+            if (el.classList.contains('drug-section')) {
+                el.style.setProperty('background', '#0f172a', 'important');
+                el.style.setProperty('color', '#f8fafc', 'important');
+            }
+        });
+    }
+    
+    // İlaç Tablosu
+    const ilacTable = document.querySelector('#ilacTabloSection table');
+    if (ilacTable) {
+        ilacTable.style.setProperty('background', '#0f172a', 'important');
+        ilacTable.style.setProperty('color', '#f8fafc', 'important');
+        
+        const allTableElements = ilacTable.querySelectorAll('*');
+        allTableElements.forEach(el => {
+            el.style.setProperty('color', '#f8fafc', 'important');
+            el.style.setProperty('border-color', '#475569', 'important');
+            if (el.tagName === 'TH') {
+                el.style.setProperty('background', '#1e293b', 'important');
+            }
+            if (el.tagName === 'TD') {
+                el.style.setProperty('background', '#0f172a', 'important');
+            }
+        });
+    }
+    
+    // Genel tüm text elementleri için son çare
+    const allTextElements = document.querySelectorAll('#dozSonuc *, #calc-results *, #ilacTabloSection *');
+    allTextElements.forEach(el => {
+        if (el.tagName === 'P' || el.tagName === 'SPAN' || el.tagName === 'DIV' || el.tagName === 'TD' || el.tagName === 'TH') {
+            el.style.setProperty('color', '#f8fafc', 'important');
+        }
+    });
+    
+    console.log('✅ Gece modu yazı renkleri zorla düzeltildi!');
 }
 
 function updateThemeIcon(theme) {

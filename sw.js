@@ -1,4 +1,4 @@
-const CACHE_NAME = '112-asistan-v32-aggressive-dark-fix';
+const CACHE_NAME = '112-asistan-v33-ultimate-dark-fix';
 const urlsToCache = [
   './',
   './index.html',
