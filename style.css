@@ -100,10 +100,14 @@
   color: #f59e0b !important;
 }
 
-/* Doz Sonuçları için Özel Kurallar - Daha Güçlü Kontrastlar */
+/* Doz Sonuçları için Çok Güçlü Kurallar */
 [data-theme="dark"] #dozSonuc {
   color: #f8fafc !important;
   background: #0f172a !important;
+}
+
+[data-theme="dark"] #dozSonuc * {
+  color: #f8fafc !important;
 }
 
 [data-theme="dark"] #dozSonuc .decision-box {
@@ -118,29 +122,69 @@
 
 [data-theme="dark"] #dozSonuc b,
 [data-theme="dark"] #dozSonuc span,
-[data-theme="dark"] #dozSonuc small {
+[data-theme="dark"] #dozSonuc small,
+[data-theme="dark"] #dozSonuc p,
+[data-theme="dark"] #dozSonuc div {
   color: #f8fafc !important;
 }
 
-/* İlaç Tablosu Gece Modu */
+/* Tahmini Vitaller için Güçlü Kurallar */
+[data-theme="dark"] #calc-results {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] #calc-results * {
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] #calc-results .drug-section {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: #475569 !important;
+}
+
+[data-theme="dark"] #calc-results h4 {
+  color: #fbbf24 !important;
+}
+
+[data-theme="dark"] #calc-results p,
+[data-theme="dark"] #calc-results b,
+[data-theme="dark"] #calc-results span {
+  color: #f8fafc !important;
+}
+
+/* İlaç Tablosu Gece Modu - Çok Güçlü */
 [data-theme="dark"] #ilacTabloSection table,
 [data-theme="dark"] #ilacTabloSection table * {
-  color: #e2e8f0 !important;
+  color: #f8fafc !important;
+  background: #0f172a !important;
 }
 
 [data-theme="dark"] #ilacTabloSection table td {
-  background: var(--card-bg) !important;
-  color: #e2e8f0 !important;
+  background: #0f172a !important;
+  color: #f8fafc !important;
   border-color: #475569 !important;
 }
 
 [data-theme="dark"] #ilacTabloSection table th {
-  background: #475569 !important;
-  color: #f1f5f9 !important;
+  background: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #475569 !important;
 }
 
 [data-theme="dark"] #ilacTabloSection table tr:nth-child(even) td {
-  background: #334155 !important;
+  background: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+/* Genel Çocuk Hesaplama Sayfası */
+[data-theme="dark"] .algo-card {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="dark"] .algo-card * {
+  color: #f8fafc !important;
 }
 
 /* Genel gece modu yazı renkleri */
